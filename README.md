@@ -1,94 +1,148 @@
-<!-- TOP BANNER matching dark gold theme -->
+<!-- ═══════════════════════════════════════════════ -->
+<!--              TOP BANNER — Deep Dark Gold        -->
+<!-- ═══════════════════════════════════════════════ -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d0d0d,50:1a1208,100:c9a84c&height=220&section=header&text=Usul%20Learning&fontSize=52&fontColor=c9a84c&fontAlignY=40&desc=Essentials%20of%20Shafi%27i%20Worship%20Series&descSize=16&descAlignY=62&descColor=f5f0e8&fontFamily=Georgia" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:080f0f,50:0d1918,100:080f0f&height=220&section=header&text=Usul%20Learning&fontSize=52&fontColor=f0e2bc&fontAlignY=42&desc=Essentials%20of%20Shafi%27i%20Worship%20Series&descSize=15&descAlignY=63&descColor=c8922a&fontFamily=Georgia" />
 </p>
 
-<!-- TYPING ANIMATION in gold -->
+<!-- ═══════════════════════════════════════════════ -->
+<!--         LOGO — from your actual website         -->
+<!-- ═══════════════════════════════════════════════ -->
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Cormorant+Garamond&weight=600&size=22&pause=1200&color=C9A84C&center=true&width=700&lines=Structured+Islamic+Knowledge;Based+on+Qur%27an+%26+Authentic+Sunnah;Shafi%27i+Tradition+%7C+Arabic+%26+English;Kerala%2C+India+%F0%9F%8C%BF" />
+  <img src="https://usullearning.com/assets/logo/usullearning-logo.svg" height="60" alt="Usul Learning Logo" />
 </p>
 
-<!-- DIVIDER -->
+<!-- ═══════════════════════════════════════════════ -->
+<!--       TYPING ANIMATION — Cormorant Italic       -->
+<!-- ═══════════════════════════════════════════════ -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solar.png" width="100%" />
+  <img src="https://readme-typing-svg.demolab.com?font=Cormorant+Garamond&weight=500&size=22&pause=1400&color=C8922A&center=true&width=700&lines=Learn+Islamic+Worship+Step-by-Step;Structured+Islamic+Education;Based+on+Qur%27an+%26+Authentic+Sunnah;Shafi%27i+Tradition+%7C+Arabic+%26+English" alt="Typing Animation" />
 </p>
 
-<!-- ARABIC AYAH - matching your website quote -->
+<!-- ═══════════════════════════════════════════════ -->
+<!--         BADGE ROW — matching site style         -->
+<!-- ═══════════════════════════════════════════════ -->
 <p align="center">
-  <br>
-  <em style="color:#c9a84c; font-size:18px;">فَاسْأَلُوا أَهْلَ الذِّكْرِ إِن كُنتُمْ لَا تَعْلَمُونَ</em>
-  <br><br>
-  <sub><i>"So ask the people of knowledge if you do not know."</i></sub>
-  <br>
-  <sub>— AN-NAHL (16), AYAH 43</sub>
+  <img src="https://img.shields.io/badge/Tradition-Shafi%27i%20Madhhab-c8922a?style=flat-square&labelColor=080f0f&color=080f0f&logoColor=c8922a" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/Language-Arabic%20%7C%20English-c8922a?style=flat-square&labelColor=080f0f&color=080f0f" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/Location-Kerala%2C%20India-c8922a?style=flat-square&labelColor=080f0f&color=080f0f" />
+  &nbsp;
+  <img src="https://komarev.com/ghpvc/?username=usullearning&label=Profile+Views&color=080f0f&labelColor=080f0f&style=flat-square" />
 </p>
 
-<!-- DIVIDER -->
-<p align="center">
-  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solar.png" width="100%" />
-</p>
+---
 
-<!-- ABOUT -->
-<h2 align="center">🕌 About Usul Learning</h2>
-
-<p align="center">
-<b>Usul Learning</b> is a structured Islamic education initiative built on the<br>
-Qur'an and authentic Sunnah within the <b>Shafi'i tradition</b>.<br><br>
-We develop bilingual <b>Arabic–English</b> learning materials organized into<br>
-carefully structured volumes — designed for <i>clarity, authenticity, and long-term benefit</i>.
-</p>
-
-<!-- BADGES -->
-<p align="center">
-  <img src="https://img.shields.io/badge/Tradition-Shafi%27i%20Fiqh-c9a84c?style=for-the-badge&labelColor=0d0d0d" />
-  <img src="https://img.shields.io/badge/Language-Arabic%20%7C%20English-c9a84c?style=for-the-badge&labelColor=0d0d0d" />
-  <img src="https://img.shields.io/badge/Location-Kerala%2C%20India-c9a84c?style=for-the-badge&labelColor=0d0d0d" />
-</p>
-
-<!-- DIVIDER -->
-<p align="center">
-  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solar.png" width="100%" />
-</p>
-
-<!-- VOLUMES -->
-<h2 align="center">📖 Current Works</h2>
+<!-- ═══════════════════════════════════════════════ -->
+<!--          ARABIC AYAH — from your hero           -->
+<!-- ═══════════════════════════════════════════════ -->
 
 <div align="center">
 
-| 📚 Volume | 📋 Description | 🔖 Status |
-|:---:|:---:|:---:|
-| **Volume 1** | Essentials of Shafi'i Worship | 🔄 In Progress |
-| **Volume 2** | To Be Announced | 🔜 Upcoming |
-| **Web Platform** | usullearning.com | 🔄 Active |
+> ### فَاسْأَلُوا أَهْلَ الذِّكْرِ إِن كُنتُمْ لَا تَعْلَمُونَ
+>
+> *"So ask the people of knowledge if you do not know."*
+>
+> — **AN-NAHL (16), AYAH 43**
 
 </div>
 
-<!-- DIVIDER -->
+---
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--               ABOUT SECTION                     -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<sub>ABOUT USUL LEARNING</sub>
+
+**Usul Learning** was established to present Islamic knowledge with clarity while preserving the authenticity of the scholarly tradition.
+
+All material is based on the Qur'an and authentic Sunnah, as understood by Ahl al-Sunnah wal-Jamā'ah within the **Shāfi'ī madhhab**. The focus is on the clear and faithful transmission of established knowledge.
+
+> *"Established to present Islamic knowledge with clarity while preserving the authenticity of the scholarly tradition."*
+
+---
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--            THREE PILLARS — from your card       -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<sub>BUILT ON THREE PILLARS</sub>
+
+| ✦ | Pillar | Description |
+|:---:|:---|:---|
+| 📖 | **The Noble Qur'an** | The primary source of all teachings |
+| 📜 | **Authentic Sunnah** | Verified narrations of the Prophet ﷺ |
+| 🕌 | **Shāfi'ī Madhhab** | One of the four established schools of Islamic law |
+
+---
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--           BOOK COVER + VOLUMES                  -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<sub>CURRENT WORKS</sub>
+
 <p align="center">
-  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solar.png" width="100%" />
+  <img src="https://usullearning.com/assets/books/essentials-shafii-worship-vol1.png" width="280" alt="Essentials of Shafi'i Worship — Volume 1" />
 </p>
 
-<!-- CONNECT -->
-<h2 align="center">🔗 Connect</h2>
+| Volume | Title | Status |
+|:---:|:---|:---:|
+| **Vol. 1** | Essentials of Shāfi'ī Worship | 🔄 In Progress |
+| **Vol. 2** | To Be Announced | 🔜 Upcoming |
+| **Platform** | usullearning.com | 🌐 Live |
 
-<p align="center">
-  <a href="https://www.linkedin.com/in/faheemisfa">
-    <img src="https://img.shields.io/badge/LinkedIn-Muhammed%20Faheem-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0d0d0d" />
+---
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--           METHODOLOGY — from your cards         -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<sub>OUR APPROACH — GROUNDED IN TRADITION</sub>
+
+| Method | Description |
+|:---|:---|
+| 📚 **Qur'an & Sunnah** | All teachings derived directly from the primary sources as understood by the scholarly tradition |
+| 🛡️ **Shāfi'ī Madhab** | Legal rulings follow the established methodology of Imām al-Shāfi'ī |
+| ✦ **Scholarly Integrity** | Faithful transmission of established knowledge — not personal interpretation or innovation |
+
+---
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--              CONNECT                            -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<sub>CONNECT</sub>
+
+<p>
+  <a href="https://www.linkedin.com/company/usullearning">
+    <img src="https://img.shields.io/badge/LinkedIn-Usul%20Learning-0A66C2?style=flat-square&logo=linkedin&logoColor=white&labelColor=080f0f" />
   </a>
+  &nbsp;
+  <a href="https://www.instagram.com/usul.learning">
+    <img src="https://img.shields.io/badge/Instagram-usul.learning-E1306C?style=flat-square&logo=instagram&logoColor=white&labelColor=080f0f" />
+  </a>
+  &nbsp;
   <a href="https://www.facebook.com/usullearning/">
-    <img src="https://img.shields.io/badge/Facebook-Usul%20Learning-1877F2?style=for-the-badge&logo=facebook&logoColor=white&labelColor=0d0d0d" />
+    <img src="https://img.shields.io/badge/Facebook-usullearning-1877F2?style=flat-square&logo=facebook&logoColor=white&labelColor=080f0f" />
   </a>
+  &nbsp;
   <a href="mailto:contact@usullearning.com">
-    <img src="https://img.shields.io/badge/Email-contact%40usullearning.com-c9a84c?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0d0d0d" />
+    <img src="https://img.shields.io/badge/Email-contact%40usullearning.com-c8922a?style=flat-square&logo=gmail&logoColor=white&labelColor=080f0f" />
   </a>
 </p>
 
-<!-- PROFILE VIEWS -->
+<sub>Registered Micro Enterprise · Udyam No: UDYAM-KL-05-0038423 · Kerala, India</sub>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--              FOOTER WAVE                        -->
+<!-- ═══════════════════════════════════════════════ -->
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=usullearning&label=Profile+Views&color=c9a84c&style=flat" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:080f0f,100:0d1918&height=100&section=footer" />
 </p>
 
-<!-- BOTTOM BANNER -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:c9a84c,100:0d0d0d&height=120&section=footer&fontSize=14&fontColor=f5f0e8" />
+  <sub>© 2026 Usul Learning · All rights reserved · A project by Muhammed Faheem</sub>
 </p>
