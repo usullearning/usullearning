@@ -86,7 +86,7 @@ Usul Learning is designed to transform scattered information into **organized, a
 ## 📊 Development Activity
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=usullearning&show_icons=true&hide=stars,issues,prs&include_all_commits=true&count_private=true&theme=transparent" />
+  <img src="https://github-readme-stats.vercel.app/api?username=usullearning&show_icons=true&include_all_commits=true&count_private=true" />
 </p>
 
 ---
