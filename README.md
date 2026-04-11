@@ -83,11 +83,14 @@ Usul Learning is designed to transform scattered information into **organized, a
 <!--        STATS              -->
 <!-- ========================= -->
 
-## 📊 Development Activity
+## 📊 Development
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=usullearning&show_icons=true&include_all_commits=true&count_private=true" />
-</p>
+This project is under active development.
+
+Focus areas:
+- Platform architecture  
+- Structured publication system  
+- Volume-based content delivery  
 
 ---
 
