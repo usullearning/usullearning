@@ -1,0 +1,48 @@
+/*
+  # ============================================================
+  # Usul Learning — Cloudflare Pages / Pages _headers file
+  # Deploy this file in the ROOT of your site.
+  # Cloudflare Pages reads it automatically.
+  # If hosting elsewhere, configure these in your server/proxy.
+  # ============================================================
+
+  # ── Strict Transport Security (HSTS) ──────────────────────
+  # Forces HTTPS for 1 year. includeSubDomains covers all
+  # subdomains. preload submits to browser preload lists.
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # ── Clickjacking protection ────────────────────────────────
+  X-Frame-Options: DENY
+
+  # ── MIME-type sniffing protection ─────────────────────────
+  X-Content-Type-Options: nosniff
+
+  # ── Referrer policy ───────────────────────────────────────
+  # Sends referrer only within same origin; nothing to external
+  # sites. Protects user privacy when clicking outbound links.
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # ── Permissions Policy ────────────────────────────────────
+  # Disables browser features the site doesn't use.
+  # Prevents malicious scripts from accessing camera, mic, etc.
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+
+  # ── Content Security Policy ───────────────────────────────
+  # Allowlist of every source the site legitimately loads from.
+  # Anything not listed is blocked by the browser.
+  #
+  # default-src 'self'          — block everything by default
+  # script-src  'self'          — only our own main.js
+  # style-src   'self' fonts.googleapis.com — styles.css + Google Fonts CSS
+  # font-src    fonts.gstatic.com           — the actual font files
+  # img-src     'self' data:               — local images + inline data: SVGs
+  # connect-src 'self'  — fetch() now goes to /api/* on your own domain
+  #                         (Worker proxies to Web3Forms and Brevo server-side)
+  # frame-ancestors 'none'      — belt-and-suspenders vs clickjacking
+  # base-uri    'self'          — prevent base tag injection
+  # form-action 'self'          — prevent form hijacking
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
+
+  # ── Cross-Origin policies ─────────────────────────────────
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
