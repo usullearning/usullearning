@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /
+
+# Fix: Sitemap reference
+Sitemap: https://usullearning.com/sitemap.xml
