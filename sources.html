@@ -35,11 +35,11 @@
   <div id="cookieBanner" class="cookie-banner hidden" role="dialog" aria-live="polite" aria-label="Cookie consent">
     <p>We use functional cookies to operate this website. We do not use tracking or advertising cookies. By continuing to use this site you consent to our <a href="privacy.html">Privacy Policy</a>. This site also uses Google Fonts, which may transfer data to Google servers (USA).</p>
     <div class="cookie-banner__actions">
-      <button id="cookieAccept" class="btn btn--gold" style="padding:10px 20px;font-size:0.72rem;">Accept</button>
-      <button id="cookieDecline" class="btn btn--ghost" style="padding:10px 20px;font-size:0.72rem;">Decline</button>
+      <button id="cookieAccept" class="btn btn--gold btn--cookie">Accept</button>
+      <button id="cookieDecline" class="btn btn--ghost btn--cookie">Decline</button>
     </div>
   </div>
-  <a href="#main-content" class="visually-hidden" style="position:absolute;top:-40px;left:0;background:var(--gold);color:var(--dark);padding:8px 16px;font-size:0.8rem;font-weight:600;z-index:999;border-radius:0 0 4px 0;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- NAV -->
   <header role="banner">
@@ -84,16 +84,16 @@
     <p class="page-hero__desc fade-up delay-2">The primary classical texts and authorities drawn upon in the works of Usul Learning.</p>
   </div></div>
 
-  <section class="section" style="background:var(--cream);">
+  <section class="section sources-intro">
     <div class="container">
-      <div style="max-width:680px;margin:0 auto 64px;text-align:center;" class="fade-up">
-        <p style="font-size:1.02rem;line-height:1.9;color:var(--text-muted);font-weight:400;">All educational content draws on well-established classical references within the Shafi'i tradition and authenticated hadith literature — not personal opinion or modern-only sources.</p>
+      <div class="sources-intro__inner fade-up">
+        <p class="sources-intro__para">All educational content draws on well-established classical references within the Shafi'i tradition and authenticated hadith literature — not personal opinion or modern-only sources.</p>
       </div>
 
-      <div class="section-header fade-up" style="margin-bottom:40px;">
+      <div class="section-header fade-up sources-group">
         <div class="section-header__eyebrow">Hadith Collections</div>
       </div>
-      <div class="sources__grid fade-up delay-1" style="margin-bottom:60px;">
+      <div class="sources__grid fade-up delay-1 sources-group sources-group--lg">
         <div class="source-pill"><div class="source-pill__name">Sahih al-Bukhārī</div><div class="source-pill__type">Hadith</div></div>
         <div class="source-pill"><div class="source-pill__name">Sahih Muslim</div><div class="source-pill__type">Hadith</div></div>
         <div class="source-pill"><div class="source-pill__name">Sunan Abī Dāwūd</div><div class="source-pill__type">Hadith</div></div>
@@ -102,10 +102,10 @@
         <div class="source-pill"><div class="source-pill__name">Sunan Ibn Mājah</div><div class="source-pill__type">Hadith</div></div>
       </div>
 
-      <div class="section-header fade-up" style="margin-bottom:40px;">
+      <div class="section-header fade-up sources-group">
         <div class="section-header__eyebrow">Shafi'i Fiqh References</div>
       </div>
-      <div class="sources__grid fade-up delay-1" style="margin-bottom:60px;">
+      <div class="sources__grid fade-up delay-1 sources-group sources-group--lg">
         <div class="source-pill"><div class="source-pill__name">Minhāj al-Ṭālibīn</div><div class="source-pill__type">Al-Nawawī · Fiqh</div></div>
         <div class="source-pill"><div class="source-pill__name">Al-Majmūʿ</div><div class="source-pill__type">Al-Nawawī · Fiqh</div></div>
         <div class="source-pill"><div class="source-pill__name">Reliance of the Traveller</div><div class="source-pill__type">Ibn Naqīb · ʿUmdat al-Sālik</div></div>
@@ -118,10 +118,10 @@
     </div>
   </section>
 
-  <section class="section--sm" style="background:var(--dark-surface);">
+  <section class="section--sm sources-cta">
     <div class="container">
-      <div style="max-width:620px;margin:0 auto;text-align:center;" class="fade-up">
-        <p style="font-size:0.9rem;line-height:1.85;color:rgba(247,242,233,0.55);font-weight:400;">Specific citations and references are provided within each book. The above is a representative overview of the primary sources drawn upon. This list is subject to expansion as further volumes are developed.</p>
+      <div class="sources-cta__inner fade-up">
+        <p class="sources-cta__para">Specific citations and references are provided within each book. The above is a representative overview of the primary sources drawn upon. This list is subject to expansion as further volumes are developed.</p>
       </div>
     </div>
   </section>
@@ -143,7 +143,7 @@
           </div>
           <p class="footer__brand-desc">Presenting Islamic knowledge in a clear and structured way, rooted in the Qur'an and authentic Sunnah within the Shafi'i madhhab.</p>
           <!-- Fix: Physical address added for Consumer Protection Rules 2020 compliance -->
-          <p style="font-size:0.78rem;color:rgba(247,242,233,0.5);margin-bottom:16px;font-weight:400;">Kerala, India · Registered Micro Enterprise</p>
+          <p class="footer__disclaimer">Kerala, India · Registered Micro Enterprise</p>
           <div class="footer__social">
             <a href="https://www.instagram.com/usul.learning/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Usul Learning on Instagram">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><defs><radialGradient id="ig1" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="url(#ig1)"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>

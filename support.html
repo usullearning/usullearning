@@ -35,11 +35,11 @@
   <div id="cookieBanner" class="cookie-banner hidden" role="dialog" aria-live="polite" aria-label="Cookie consent">
     <p>We use functional cookies to operate this website. We do not use tracking or advertising cookies. By continuing to use this site you consent to our <a href="privacy.html">Privacy Policy</a>. This site also uses Google Fonts, which may transfer data to Google servers (USA).</p>
     <div class="cookie-banner__actions">
-      <button id="cookieAccept" class="btn btn--gold" style="padding:10px 20px;font-size:0.72rem;">Accept</button>
-      <button id="cookieDecline" class="btn btn--ghost" style="padding:10px 20px;font-size:0.72rem;">Decline</button>
+      <button id="cookieAccept" class="btn btn--gold btn--cookie">Accept</button>
+      <button id="cookieDecline" class="btn btn--ghost btn--cookie">Decline</button>
     </div>
   </div>
-  <a href="#main-content" class="visually-hidden" style="position:absolute;top:-40px;left:0;background:var(--gold);color:var(--dark);padding:8px 16px;font-size:0.8rem;font-weight:600;z-index:999;border-radius:0 0 4px 0;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- NAV -->
   <header role="banner">
@@ -87,7 +87,7 @@
   </div>
 
   <!-- SUPPORT MAIN -->
-  <section class="section support" style="background:var(--cream-dark);">
+  <section class="section support support-upi">
     <div class="container">
       <div class="support__inner">
 
@@ -125,58 +125,58 @@
           </div>
 
           <!-- Bank Details -->
-          <div style="margin-top:36px;padding:28px 32px;background:white;border:1px solid var(--border-soft);border-radius:var(--radius-md);box-shadow:0 2px 12px rgba(8,15,15,0.06);">
-            <div style="font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:10px;">
-              <span style="display:block;width:20px;height:1px;background:var(--gold);"></span>
+          <div>
+            <div>
+              <span class="upi-card__label-line"></span>
               Bank Transfer Details
             </div>
-            <div style="display:flex;flex-direction:column;gap:13px;">
-              <div style="display:flex;gap:16px;font-size:0.92rem;align-items:baseline;">
-                <span style="min-width:150px;color:var(--text-muted);font-weight:500;font-size:0.78rem;letter-spacing:0.04em;">Account Name</span>
-                <span style="color:var(--ink);font-weight:400;">Muhammed Faheem M A</span>
+            <div class="upi-card__rows">
+              <div class="upi-card__row">
+                <span class="upi-card__key">Account Name</span>
+                <span class="upi-card__val">Muhammed Faheem M A</span>
               </div>
-              <div style="display:flex;gap:16px;font-size:0.92rem;align-items:baseline;">
-                <span style="min-width:150px;color:var(--text-muted);font-weight:500;font-size:0.78rem;letter-spacing:0.04em;">Account Number</span>
-                <span style="color:var(--ink);font-weight:400;font-family:monospace;letter-spacing:0.06em;">001721711301535</span>
+              <div class="upi-card__row">
+                <span class="upi-card__key">Account Number</span>
+                <span class="upi-card__val--mono">001721711301535</span>
               </div>
-              <div style="display:flex;gap:16px;font-size:0.92rem;align-items:baseline;">
-                <span style="min-width:150px;color:var(--text-muted);font-weight:500;font-size:0.78rem;letter-spacing:0.04em;">IFSC Code</span>
-                <span style="color:var(--ink);font-weight:400;font-family:monospace;letter-spacing:0.08em;">JIOP0000001</span>
+              <div class="upi-card__row">
+                <span class="upi-card__key">IFSC Code</span>
+                <span class="upi-card__val--mono-lg">JIOP0000001</span>
               </div>
-              <div style="display:flex;gap:16px;font-size:0.92rem;align-items:baseline;">
-                <span style="min-width:150px;color:var(--text-muted);font-weight:500;font-size:0.78rem;letter-spacing:0.04em;">Bank</span>
-                <span style="color:var(--ink);font-weight:400;">Jio Payments Bank</span>
+              <div class="upi-card__row">
+                <span class="upi-card__key">Bank</span>
+                <span class="upi-card__val">Jio Payments Bank</span>
               </div>
-              <div style="height:1px;background:var(--border-soft);margin:4px 0;"></div>
-              <div style="display:flex;gap:16px;font-size:0.92rem;align-items:baseline;">
-                <span style="min-width:150px;color:var(--text-muted);font-weight:500;font-size:0.78rem;letter-spacing:0.04em;">UPI ID</span>
-                <span style="color:var(--gold);font-weight:500;font-family:monospace;letter-spacing:0.04em;">faheem.public@okaxis</span>
+              <div class="upi-card__row-divider"></div>
+              <div class="upi-card__row">
+                <span class="upi-card__key">UPI ID</span>
+                <span class="upi-card__val--gold">faheem.public@okaxis</span>
               </div>
-              <div style="display:flex;gap:16px;font-size:0.92rem;align-items:baseline;">
-                <span style="min-width:150px;color:var(--text-muted);font-weight:500;font-size:0.78rem;letter-spacing:0.04em;">URN No</span>
-                <span style="color:var(--ink);font-weight:400;font-family:monospace;letter-spacing:0.06em;">94160116</span>
+              <div class="upi-card__row">
+                <span class="upi-card__key">URN No</span>
+                <span class="upi-card__val--mono">94160116</span>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Right: logo + QR -->
-        <div class="support__visual fade-up delay-2" style="text-align:center;">
-          <div style="margin-bottom:24px;position:relative;z-index:2;">
-            <img src="assets/logo/usullearning-logo.svg" alt="" style="height:52px;width:auto;filter:brightness(0) invert(1);opacity:0.88;margin:0 auto 16px;display:block;" />
-            <div style="font-family:'Gentium Plus',Georgia,serif;font-size:1.7rem;font-weight:700;color:var(--gold-pale);letter-spacing:0.02em;line-height:1.25;position:relative;z-index:2;">Support Usul Learning</div>
-            <div style="font-size:0.85rem;color:rgba(240,226,192,0.58);margin-top:8px;font-weight:400;position:relative;z-index:2;">Scan the QR code with any UPI app</div>
+        <div class="support__visual fade-up delay-2 support-qr">
+          <div class="support-qr__top">
+            <img src="assets/logo/usullearning-logo.svg" alt="" class="support-qr-logo" />
+            <div>Support Usul Learning</div>
+            <div class="support-qr__tagline">Scan the QR code with any UPI app</div>
           </div>
 
-          <div style="background:white;border-radius:var(--radius-md);padding:20px;display:inline-block;margin-bottom:20px;position:relative;z-index:2;box-shadow:0 8px 40px rgba(0,0,0,0.3);">
-            <img src="assets/images/qr-code.jpg" loading="lazy" alt="UPI QR Code — Scan to pay" style="width:230px;height:230px;object-fit:contain;display:block;" />
+          <div>
+            <img src="assets/images/qr-code.jpg" loading="lazy" alt="UPI QR Code — Scan to pay" class="support-qr__img" />
           </div>
 
-          <div style="position:relative;z-index:2;">
-            <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">UPI ID</div>
-            <div style="font-size:1rem;color:var(--gold-pale);font-weight:400;font-family:monospace;letter-spacing:0.06em;margin-bottom:20px;">faheem.public@okaxis</div>
-            <div style="font-size:0.78rem;color:rgba(240,226,192,0.4);font-weight:400;line-height:1.7;">
-              Your contribution is entirely voluntary<br/>and deeply appreciated. Jazakumullahu Khayran. <br/><small style="opacity:0.6;font-size:0.8em;">Contributions are voluntary Sadaqah and do not constitute Zakat.</small>
+          <div class="support-qr__bottom">
+            <div class="support-qr__scan-label">UPI ID</div>
+            <div>faheem.public@okaxis</div>
+            <div class="support-qr__note">
+              Your contribution is entirely voluntary<br/>and deeply appreciated. Jazakumullahu Khayran. <br/><small class="support-sadaqah">Contributions are voluntary Sadaqah and do not constitute Zakat.</small>
             </div>
           </div>
         </div>
@@ -213,7 +213,7 @@
           </div>
           <p class="footer__brand-desc">Presenting Islamic knowledge in a clear and structured way, rooted in the Qur'an and authentic Sunnah within the Shafi'i madhhab.</p>
           <!-- Fix: Physical address added for Consumer Protection Rules 2020 compliance -->
-          <p style="font-size:0.78rem;color:rgba(247,242,233,0.5);margin-bottom:16px;font-weight:400;">Kerala, India · Registered Micro Enterprise</p>
+          <p class="footer__disclaimer">Kerala, India · Registered Micro Enterprise</p>
           <div class="footer__social">
             <a href="https://www.instagram.com/usul.learning/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Usul Learning on Instagram">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><defs><radialGradient id="ig1" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="url(#ig1)"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>
