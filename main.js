@@ -175,7 +175,10 @@ function handleContact() {
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify({ name, email, subject, message }),
   })
-    .then(r => r.json())
+    .then(r => {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
     .then(data => {
       if (data.success || data.ok) {
         setBtn(btn, 'Message Sent ✓', false, '#0d4a47');
@@ -211,7 +214,10 @@ function handleNotifySubmit(inputId, btnEl, url) {
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify({ email }),
   })
-    .then(r => r.json())
+    .then(r => {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
     .then(data => {
       if (!(data.success || data.ok)) throw new Error(data.error || 'Failed');
       setBtn(btnEl, 'Subscribed ✓', false, '#0d4a47', 'var(--gold-pale)');
