@@ -33,15 +33,17 @@
   #
   # default-src 'self'          — block everything by default
   # script-src  'self'          — only our own main.js
+  #             + static.cloudflareinsights.com — Cloudflare Web Analytics beacon
+  #               (injected automatically by Cloudflare at the edge)
   # style-src   'self' fonts.googleapis.com — styles.css + Google Fonts CSS
   # font-src    fonts.gstatic.com           — the actual font files
   # img-src     'self' data:               — local images + inline data: SVGs
-  # connect-src 'self'  — fetch() now goes to /api/* on your own domain
-  #                         (Worker proxies to Web3Forms and Brevo server-side)
+  # connect-src 'self' api.web3forms.com   — contact form direct to Web3Forms
+  #             + cloudflareinsights.com    — beacon reporting endpoint
   # frame-ancestors 'none'      — belt-and-suspenders vs clickjacking
   # base-uri    'self'          — prevent base tag injection
   # form-action 'self'          — prevent form hijacking
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.web3forms.com https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com
 
   # ── Cross-Origin policies ─────────────────────────────────
   Cross-Origin-Opener-Policy: same-origin
