@@ -63,11 +63,14 @@ async function handleContact(request, env, origin, allowed) {
       subject: subject || 'Message from Usul Learning website',
       message,
       from_name: 'Usul Learning Contact Form',
-      redirect: 'false',
+      // Do NOT include redirect here. Passing the string 'false' is treated by
+      // Web3Forms as a redirect URL, which causes it to return HTML instead of
+      // JSON — breaking upstream.json() and causing a silent 500.
     }),
   });
 
-  const data = await upstream.json();
+  // Web3Forms may return non-JSON if misconfigured; guard against that.
+  const data = await upstream.json().catch(() => ({ success: false, message: 'Unexpected response from mail service' }));
 
   if (data.success) {
     return corsResponse(JSON.stringify({ success: true }), 200, origin, allowed);
@@ -94,10 +97,10 @@ async function handleSubscribe(request, env, origin, allowed) {
     return corsResponse(JSON.stringify({ error: 'Invalid email' }), 400, origin, allowed);
   }
 
-  const listId = parseInt(env.BREVO_LIST_ID, 10);
-  if (!listId) {
-    return corsResponse(JSON.stringify({ error: 'List not configured' }), 500, origin, allowed);
-  }
+  // List ID 2 is the known Usul Learning subscriber list.
+  // BREVO_LIST_ID secret overrides this; fallback ensures it works even if the
+  // secret was not yet set in the Worker dashboard.
+  const listId = parseInt(env.BREVO_LIST_ID, 10) || 2;
 
   const upstream = await fetch('https://api.brevo.com/v3/contacts', {
     method: 'POST',
