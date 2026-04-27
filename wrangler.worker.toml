@@ -1,0 +1,33 @@
+# ── IMPORTANT ─────────────────────────────────────────────────────────────────
+# This file is named wrangler.worker.toml intentionally.
+# Cloudflare Pages ignores any wrangler config that lacks `pages_build_output_dir`.
+# Renaming it away from wrangler.toml prevents Pages from picking it up during
+# its build and throwing: "does not appear to be valid" warnings or errors.
+#
+# To deploy the standalone Worker (usul-proxy), run:
+#   wrangler deploy --config wrangler.worker.toml
+# ──────────────────────────────────────────────────────────────────────────────
+
+name = "usul-proxy"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# ── Routes ────────────────────────────────────────────────────────────────────
+# This Worker handles all /api/* requests on the live domain.
+# The Cloudflare Pages site serves everything else as static assets.
+# Make sure this route is also confirmed in the Cloudflare Dashboard under
+# Workers & Pages → usul-proxy → Settings → Triggers → Routes.
+
+[[routes]]
+pattern = "usullearning.com/api/*"
+zone_name = "usullearning.com"
+
+# ── Secrets ───────────────────────────────────────────────────────────────────
+# These are NOT stored here. Set them once via:
+#   wrangler secret put ALLOWED_ORIGIN     → https://usullearning.com
+#   wrangler secret put WEB3FORMS_KEY      → your Web3Forms access key
+#   wrangler secret put BREVO_KEY          → your Brevo API key
+#   wrangler secret put BREVO_LIST_ID      → your Brevo list ID (numeric)
+#
+# Or set them in the Cloudflare Dashboard:
+#   Workers & Pages → usul-proxy → Settings → Variables and Secrets
