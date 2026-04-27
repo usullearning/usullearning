@@ -24,10 +24,6 @@ export default {
 
     const url = new URL(request.url);
 
-    if (url.pathname === '/api/contact') {
-      return handleContact(request, env, effectiveOrigin, effectiveAllowed);
-    }
-
     if (url.pathname === '/api/subscribe') {
       return handleSubscribe(request, env, effectiveOrigin, effectiveAllowed);
     }
@@ -35,54 +31,6 @@ export default {
     return corsResponse(JSON.stringify({ error: 'Not found' }), 404, effectiveOrigin, effectiveAllowed);
   },
 };
-
-async function handleContact(request, env, origin, allowed) {
-  let body;
-  try {
-    body = await request.json();
-  } catch {
-    return corsResponse(JSON.stringify({ error: 'Invalid JSON' }), 400, origin, allowed);
-  }
-
-  const { name, email, subject, message } = body;
-  if (!name || !email || !email.includes('@') || !message) {
-    return corsResponse(JSON.stringify({ error: 'Missing required fields' }), 400, origin, allowed);
-  }
-
-  if (body._gotcha) {
-    return corsResponse(JSON.stringify({ success: true }), 200, origin, allowed);
-  }
-
-  const upstream = await fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify({
-      access_key: env.WEB3FORMS_KEY,
-      name,
-      email,
-      subject: subject || 'Message from Usul Learning website',
-      message,
-      from_name: 'Usul Learning Contact Form',
-      // Do NOT include redirect here. Passing the string 'false' is treated by
-      // Web3Forms as a redirect URL, which causes it to return HTML instead of
-      // JSON — breaking upstream.json() and causing a silent 500.
-    }),
-  });
-
-  // Web3Forms may return non-JSON if misconfigured; guard against that.
-  const data = await upstream.json().catch(() => ({ success: false, message: 'Unexpected response from mail service' }));
-
-  if (data.success) {
-    return corsResponse(JSON.stringify({ success: true }), 200, origin, allowed);
-  }
-
-  return corsResponse(
-    JSON.stringify({ error: data.message || 'Submission failed' }),
-    502,
-    origin,
-    allowed
-  );
-}
 
 async function handleSubscribe(request, env, origin, allowed) {
   let body;
