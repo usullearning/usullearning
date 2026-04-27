@@ -35,11 +35,11 @@
   <div id="cookieBanner" class="cookie-banner hidden" role="dialog" aria-live="polite" aria-label="Cookie consent">
     <p>We use functional cookies to operate this website. We do not use tracking or advertising cookies. By continuing to use this site you consent to our <a href="privacy.html">Privacy Policy</a>. This site also uses Google Fonts, which may transfer data to Google servers (USA).</p>
     <div class="cookie-banner__actions">
-      <button id="cookieAccept" class="btn btn--gold" style="padding:10px 20px;font-size:0.72rem;">Accept</button>
-      <button id="cookieDecline" class="btn btn--ghost" style="padding:10px 20px;font-size:0.72rem;">Decline</button>
+      <button id="cookieAccept" class="btn btn--gold btn--cookie">Accept</button>
+      <button id="cookieDecline" class="btn btn--ghost btn--cookie">Decline</button>
     </div>
   </div>
-  <a href="#main-content" class="visually-hidden" style="position:absolute;top:-40px;left:0;background:var(--gold);color:var(--dark);padding:8px 16px;font-size:0.8rem;font-weight:600;z-index:999;border-radius:0 0 4px 0;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- NAV -->
   <header role="banner">
@@ -89,18 +89,18 @@
   </div>
 
   <!-- Series Intro -->
-  <section class="section" style="background:var(--cream);">
+  <section class="section books-intro">
     <div class="container">
-      <div style="max-width:720px;margin:0 auto;text-align:center;" class="fade-up">
-        <div class="ornament" style="margin-bottom:32px;">
+      <div class="books-intro__inner fade-up">
+        <div class="ornament books-intro__eyebrow">
           <div class="ornament__line"></div>
           <div class="ornament__dot"></div>
           <div class="ornament__diamond"></div>
           <div class="ornament__dot"></div>
           <div class="ornament__line ornament__line--r"></div>
         </div>
-        <h2 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);color:var(--ink);margin-bottom:20px;font-weight:400;">Essentials of Shafi'i Worship</h2>
-        <p style="font-size:1.05rem;line-height:1.85;color:var(--text-muted);font-weight:400;">
+        <h2 class="books-intro__heading">Essentials of Shafi'i Worship</h2>
+        <p class="books-intro__desc">
           A structured educational project designed to guide readers through the foundations of Islamic worship step by step. Each volume focuses on a different dimension — moving from outward correctness of actions to the inward sincerity of the heart. Rooted in over 1400 years of Islamic scholarship.
         </p>
       </div>
@@ -108,10 +108,10 @@
   </section>
 
   <!-- Volume 1 -->
-  <section class="section" style="background:var(--cream-dark);">
+  <section class="section book-detail">
     <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;" class="book-section-grid">
-        <div class="fade-up" style="display:flex;justify-content:center;">
+      <div class="book-detail__grid book-section-grid">
+        <div class="fade-up book-detail__visual">
           <div class="book-3d">
             <div class="book-cover">
               <img src="assets/books/essentials-shafii-worship-vol1.png" loading="lazy" alt="Volume I — The Form of Worship" />
@@ -122,20 +122,20 @@
         </div>
         <div class="fade-up delay-2">
           <div class="eyebrow">Volume I</div>
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.6rem);color:var(--ink);margin-bottom:8px;font-weight:400;">Essentials of Shafi'i Worship — Volume I</h2>
-          <p style="font-family:var(--font-display);font-style:italic;color:var(--text-muted);font-size:1.2rem;margin-bottom:24px;font-weight:400;">The Form of Worship</p>
-          <p style="font-size:1rem;line-height:1.9;color:var(--text-body);font-weight:400;margin-bottom:18px;">
+          <h2 class="book-detail__title">Essentials of Shafi'i Worship — Volume I</h2>
+          <p class="book-detail__subtitle">The Form of Worship</p>
+          <p class="book-detail__para">
             Before a Muslim can worship correctly, certain essential conditions and knowledge must be in place — from the rules of purity to the correct performance of prayer.
           </p>
-          <p style="font-size:1rem;line-height:1.9;color:var(--text-body);font-weight:400;margin-bottom:32px;">
+          <p class="book-detail__para book-detail__para--last">
             Following the juristic methodology of the Shafi'i madhhab, this volume presents the outward dimension of worship with clarity, structure, and scholarly grounding — grounded in established scholarship and accessible to every Muslim.
           </p>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;">
-            <span class="book-card__topic" style="background:rgba(13,74,71,0.08);border:1px solid rgba(13,74,71,0.18);color:var(--emerald);">Purification (Ṭahārah)</span>
-            <span class="book-card__topic" style="background:rgba(13,74,71,0.08);border:1px solid rgba(13,74,71,0.18);color:var(--emerald);">Conditions of Prayer</span>
-            <span class="book-card__topic" style="background:rgba(13,74,71,0.08);border:1px solid rgba(13,74,71,0.18);color:var(--emerald);">Pillars of Ṣalāh</span>
-            <span class="book-card__topic" style="background:rgba(13,74,71,0.08);border:1px solid rgba(13,74,71,0.18);color:var(--emerald);">Legal Rulings</span>
-            <span class="book-card__topic" style="background:rgba(13,74,71,0.08);border:1px solid rgba(13,74,71,0.18);color:var(--emerald);">Shafi'i Fiqh</span>
+          <div class="book-detail__tags">
+            <span class="book-card__topic book-detail__tag">Purification (Ṭahārah)</span>
+            <span class="book-card__topic book-detail__tag">Conditions of Prayer</span>
+            <span class="book-card__topic book-detail__tag">Pillars of Ṣalāh</span>
+            <span class="book-card__topic book-detail__tag">Legal Rulings</span>
+            <span class="book-card__topic book-detail__tag">Shafi'i Fiqh</span>
           </div>
           <div class="book-card__status">
             <div class="book-card__status-dot"></div>
@@ -147,32 +147,32 @@
   </section>
 
   <!-- Volume 2 -->
-  <section class="section" style="background:var(--cream);">
+  <section class="section book-detail book-detail--alt">
     <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;" class="book-section-grid">
+      <div class="book-detail__grid book-section-grid">
         <div class="fade-up">
           <div class="eyebrow">Volume II</div>
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.6rem);color:var(--ink);margin-bottom:8px;font-weight:400;">Essentials of Shafi'i Worship — Volume II</h2>
-          <p style="font-family:var(--font-display);font-style:italic;color:var(--text-muted);font-size:1.2rem;margin-bottom:24px;font-weight:400;">The Heart of Worship</p>
-          <p style="font-size:1rem;line-height:1.9;color:var(--text-body);font-weight:400;margin-bottom:18px;">
+          <h2 class="book-detail__title">Essentials of Shafi'i Worship — Volume II</h2>
+          <p class="book-detail__subtitle">The Heart of Worship</p>
+          <p class="book-detail__para">
             Correct outward worship is the foundation, not the end. This volume turns to the inward dimension — the qualities and states of the heart that elevate worship from mere form to genuine devotion.
           </p>
-          <p style="font-size:1rem;line-height:1.9;color:var(--text-body);font-weight:400;margin-bottom:32px;">
+          <p class="book-detail__para book-detail__para--last">
             Topics include sincerity (ikhlāṣ), love of Allah (maḥabbah), hope (rajāʾ), fear (khawf), humility (khushūʿ), and the means of drawing closer to Allah through consistent worship and remembrance.
           </p>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;">
-            <span class="book-card__topic" style="background:rgba(13,74,71,0.08);border:1px solid rgba(13,74,71,0.18);color:var(--emerald);">Sincerity (Ikhlāṣ)</span>
-            <span class="book-card__topic" style="background:rgba(13,74,71,0.08);border:1px solid rgba(13,74,71,0.18);color:var(--emerald);">Love of Allah</span>
-            <span class="book-card__topic" style="background:rgba(13,74,71,0.08);border:1px solid rgba(13,74,71,0.18);color:var(--emerald);">Hope & Fear</span>
-            <span class="book-card__topic" style="background:rgba(13,74,71,0.08);border:1px solid rgba(13,74,71,0.18);color:var(--emerald);">Khushūʿ</span>
-            <span class="book-card__topic" style="background:rgba(13,74,71,0.08);border:1px solid rgba(13,74,71,0.18);color:var(--emerald);">Purification of the heart</span>
+          <div class="book-detail__tags">
+            <span class="book-card__topic book-detail__tag">Sincerity (Ikhlāṣ)</span>
+            <span class="book-card__topic book-detail__tag">Love of Allah</span>
+            <span class="book-card__topic book-detail__tag">Hope & Fear</span>
+            <span class="book-card__topic book-detail__tag">Khushūʿ</span>
+            <span class="book-card__topic book-detail__tag">Purification of the heart</span>
           </div>
-          <div class="book-card__status" style="border-color:rgba(200,146,42,0.25);color:rgba(200,146,42,0.65);">
-            <div class="book-card__status-dot" style="background:var(--gold-light);"></div>
+          <div class="book-card__status book-detail__vol2-badge">
+            <div class="book-card__status-dot book-detail__vol2-dot"></div>
             Coming Soon — In Sha' Allah
           </div>
         </div>
-        <div class="fade-up delay-2" style="display:flex;justify-content:center;">
+        <div class="fade-up delay-2 book-detail__visual">
           <div class="book-3d">
             <div class="book-cover">
               <img src="assets/books/essentials-shafii-worship-vol2.png" loading="lazy" alt="Volume II — The Heart of Worship" />
@@ -189,26 +189,26 @@
 
 
   <!-- ── Print Edition ── -->
-  <section style="background:var(--dark);padding:64px 0;border-top:1px solid rgba(200,146,42,0.1);" aria-label="Print edition interest">
+  <section class="print-section" aria-label="Print edition interest">
     <div class="container">
-      <div style="max-width:680px;margin:0 auto;text-align:center;">
+      <div class="print-section__inner">
 
-        <div style="display:inline-flex;align-items:center;gap:10px;padding:6px 18px;background:rgba(200,146,42,0.08);border:1px solid rgba(200,146,42,0.22);border-radius:40px;margin-bottom:24px;">
-          <span style="width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block;animation:pulse 2s infinite;"></span>
-          <span style="font-size:0.66rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);">Print Edition — Coming by Demand</span>
+        <div class="print-section__badge">
+          <span class="print-section__badge-dot"></span>
+          <span class="print-section__badge-label">Print Edition — Coming by Demand</span>
         </div>
 
-        <h2 style="font-family:var(--font-display);font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(--gold-pale);font-weight:300;line-height:1.15;margin-bottom:16px;">Would You Like a <em style="font-style:italic;color:var(--gold);">Printed Copy?</em></h2>
-        <p style="font-size:0.98rem;line-height:1.85;color:var(--text-on-dark);font-weight:400;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto;">The digital edition is and will always remain free. If you would benefit from a physical copy — for reading, annotation, or gifting — register your interest. A print edition will be made available once sufficient demand is reached. Registering is not a purchase.</p>
+        <h2 class="print-section__heading">Would You Like a <em class="print-section__em">Printed Copy?</em></h2>
+        <p class="print-section__desc">The digital edition is and will always remain free. If you would benefit from a physical copy — for reading, annotation, or gifting — register your interest. A print edition will be made available once sufficient demand is reached. Registering is not a purchase.</p>
 
-        <div style="display:flex;flex-direction:column;gap:10px;max-width:380px;margin:0 auto;">
+        <div class="print-section__form">
           <label for="notifyEmailPOD" class="visually-hidden">Email for print edition interest</label>
-          <input type="email" class="notify-input" placeholder="your@email.com" id="notifyEmailPOD" aria-label="Email for print edition interest" style="width:100%;text-align:center;" />
-          <button class="btn btn--gold" onclick="handleNotifyPOD(event)" style="justify-content:center;width:100%;">
+          <input type="email" class="notify-input" placeholder="your@email.com" id="notifyEmailPOD" name="email" required autocomplete="email" aria-label="Email for print edition interest" />
+          <button class="btn btn--gold print-section__btn" onclick="handleNotifyPOD(event)">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
             Register Interest
           </button>
-          <p style="font-size:0.76rem;color:rgba(247,242,233,0.5);margin:0;">No commitment. We will reach out personally if print moves forward, in sha' Allah.</p>
+          <p class="print-section__note">No commitment. We will reach out personally if print moves forward, in sha' Allah.</p>
         </div>
 
       </div>
@@ -226,7 +226,7 @@
         </div>
         <div class="notify-form notify-section__form">
           <input type="email" class="notify-input" placeholder="your@email.com" id="notifyEmailFooter" name="email" aria-label="Email address for volume notifications" required autocomplete="email" />
-          <button class="btn btn--outline" style="padding:11px 24px;font-size:0.74rem;" onclick="handleNotifyFooter(event)">Notify Me</button>
+          <button class="btn btn--outline notify-btn-inline" onclick="handleNotifyFooter(event)">Notify Me</button>
         </div>
       </div>
     </div>
@@ -251,7 +251,7 @@
           </div>
           <p class="footer__brand-desc">Presenting Islamic knowledge in a clear and structured way, rooted in the Qur'an and authentic Sunnah within the Shafi'i madhhab.</p>
           <!-- Fix: Physical address added for Consumer Protection Rules 2020 compliance -->
-          <p style="font-size:0.78rem;color:rgba(247,242,233,0.5);margin-bottom:16px;font-weight:400;">Kerala, India · Registered Micro Enterprise</p>
+          <p class="footer__disclaimer">Kerala, India · Registered Micro Enterprise</p>
           <div class="footer__social">
             <a href="https://www.instagram.com/usul.learning/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Usul Learning on Instagram">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><defs><radialGradient id="ig1" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="url(#ig1)"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>

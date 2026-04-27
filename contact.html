@@ -35,11 +35,11 @@
   <div id="cookieBanner" class="cookie-banner hidden" role="dialog" aria-live="polite" aria-label="Cookie consent">
     <p>We use functional cookies to operate this website. We do not use tracking or advertising cookies. By continuing to use this site you consent to our <a href="privacy.html">Privacy Policy</a>. This site also uses Google Fonts, which may transfer data to Google servers (USA).</p>
     <div class="cookie-banner__actions">
-      <button id="cookieAccept" class="btn btn--gold" style="padding:10px 20px;font-size:0.72rem;">Accept</button>
-      <button id="cookieDecline" class="btn btn--ghost" style="padding:10px 20px;font-size:0.72rem;">Decline</button>
+      <button id="cookieAccept" class="btn btn--gold btn--cookie">Accept</button>
+      <button id="cookieDecline" class="btn btn--ghost btn--cookie">Decline</button>
     </div>
   </div>
-  <a href="#main-content" class="visually-hidden" style="position:absolute;top:-40px;left:0;background:var(--gold);color:var(--dark);padding:8px 16px;font-size:0.8rem;font-weight:600;z-index:999;border-radius:0 0 4px 0;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- NAV -->
   <header role="banner">
@@ -94,15 +94,15 @@
           <div class="contact__details">
             
           </div>
-          <div style="margin-top:48px;padding:24px 28px;background:var(--cream);border:1px solid var(--border-soft);border-radius:var(--radius-md);">
-            <div style="font-size:0.68rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Response Time</div>
-            <p style="font-size:0.9rem;color:var(--text-muted);font-weight:400;line-height:1.75;margin:0;">All messages are read and responded to personally. Response times may vary — please allow a few days, in sha' Allah.</p>
+          <div class="contact-note">
+            <div>Response Time</div>
+            <p class="contact-note__text">All messages are read and responded to personally. Response times may vary — please allow a few days, in sha' Allah.</p>
           </div>
         </div>
         <div class="contact__form fade-up delay-2">
-          <div style="margin-bottom:28px;">
-            <div style="font-family:var(--font-display);font-size:1.5rem;color:var(--ink);margin-bottom:6px;font-weight:400;">Send a Message</div>
-            <p style="font-size:0.88rem;color:var(--text-muted);font-weight:400;">Fill in the form below and we'll get back to you.</p>
+          <div class="contact-note__gap">
+            <div class="contact-note__alt-heading">Send a Message</div>
+            <p class="contact-note__alt-sub">Fill in the form below and we'll get back to you.</p>
           </div>
           <div class="form-group">
             <label class="form-label" for="name">Your Name</label>
@@ -120,12 +120,12 @@
             <label class="form-label" for="message">Message</label>
             <textarea class="form-textarea" id="message" name="message" placeholder="Write your message here..." required></textarea>
           </div>
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <button class="btn btn--primary" style="width:100%;justify-content:center;" onclick="handleContact()">
+          <input type="text" name="_gotcha" class="input--hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <button class="btn btn--primary contact-form__btn-full" onclick="handleContact()">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             Send Message
           </button>
-          <p style="font-size:0.78rem;color:var(--text-muted);text-align:center;margin-top:14px;font-weight:400;">Or email directly at <a href="mailto:contact@usullearning.com" style="color:var(--gold);">contact@usullearning.com</a></p>
+          <p class="contact-form__privacy">Or email directly at <a href="mailto:contact@usullearning.com" class="contact-form__privacy-link">contact@usullearning.com</a></p>
         </div>
       </div>
     </div>
@@ -148,7 +148,7 @@
           </div>
           <p class="footer__brand-desc">Presenting Islamic knowledge in a clear and structured way, rooted in the Qur'an and authentic Sunnah within the Shafi'i madhhab.</p>
           <!-- Fix: Physical address added for Consumer Protection Rules 2020 compliance -->
-          <p style="font-size:0.78rem;color:rgba(247,242,233,0.5);margin-bottom:16px;font-weight:400;">Kerala, India · Registered Micro Enterprise</p>
+          <p class="footer__disclaimer">Kerala, India · Registered Micro Enterprise</p>
           <div class="footer__social">
             <a href="https://www.instagram.com/usul.learning/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Usul Learning on Instagram">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><defs><radialGradient id="ig1" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="url(#ig1)"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>
