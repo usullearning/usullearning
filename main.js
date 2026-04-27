@@ -186,22 +186,31 @@ function handleContact() {
     }),
   })
     .then(r => {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
+      // Read the body first regardless of status so we can surface the real
+      // Web3Forms error message (e.g. "unverified key") instead of just "HTTP 500".
+      return r.json().then(data => ({ ok: r.ok, status: r.status, data }));
     })
-    .then(data => {
+    .then(({ ok, status, data }) => {
       if (data.success) {
         setBtn(btn, 'Message Sent ✓', false, '#0d4a47');
         [nameEl, emailEl, subjectEl, msgEl].forEach(el => { if (el) el.value = ''; });
         setTimeout(() => setBtn(btn, orig, true), 4000);
       } else {
-        throw new Error(data.message || 'Submission failed');
+        // Log the full Web3Forms response so the real reason is visible in console.
+        console.error('Web3Forms response:', status, data);
+        throw new Error(data.message || ('HTTP ' + status));
       }
     })
     .catch(err => {
-      console.error('Contact form:', err);
       setBtn(btn, orig, true);
-      showError('Could not send. Please email us directly at contact@usullearning.com');
+      // TypeError means a network-level block (ad blocker, CORS, offline).
+      // Give the user a specific, actionable message rather than a generic one.
+      if (err instanceof TypeError) {
+        showError('Your browser or an extension blocked the form. Please disable your ad blocker for this site, or email us at contact@usullearning.com');
+      } else {
+        console.error('Contact form:', err.message);
+        showError('Could not send — ' + err.message + '. Please email contact@usullearning.com');
+      }
     });
 }
 
