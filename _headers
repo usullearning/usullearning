@@ -41,7 +41,7 @@
   # frame-ancestors 'none'      — belt-and-suspenders vs clickjacking
   # base-uri    'self'          — prevent base tag injection
   # form-action 'self'          — prevent form hijacking
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com
 
   # ── Cross-Origin policies ─────────────────────────────────
   Cross-Origin-Opener-Policy: same-origin

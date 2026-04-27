@@ -3,7 +3,10 @@
    Frontend for Worker endpoints
    ============================================================ */
 
-const CONTACT_URL = '/api/contact';
+// Contact goes directly to Web3Forms from the browser (free plan, no server-side proxy needed).
+// Web3Forms access keys are explicitly safe to expose in client-side code.
+const CONTACT_URL = 'https://api.web3forms.com/submit';
+const WEB3FORMS_KEY = '2e08d270-7507-4f31-a552-3aa165969329'; // replace with your actual key
 const SUBSCRIBE_URL = '/api/subscribe';
 
 /* ── DEVICE CAPABILITY DETECTION ───────────────────────────── */
@@ -173,19 +176,26 @@ function handleContact() {
   fetch(CONTACT_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify({ name, email, subject, message }),
+    body: JSON.stringify({
+      access_key: WEB3FORMS_KEY,
+      name,
+      email,
+      subject: subject || 'Message from Usul Learning website',
+      message,
+      from_name: 'Usul Learning Contact Form',
+    }),
   })
     .then(r => {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
     })
     .then(data => {
-      if (data.success || data.ok) {
+      if (data.success) {
         setBtn(btn, 'Message Sent ✓', false, '#0d4a47');
         [nameEl, emailEl, subjectEl, msgEl].forEach(el => { if (el) el.value = ''; });
         setTimeout(() => setBtn(btn, orig, true), 4000);
       } else {
-        throw new Error(data.error || 'Submission failed');
+        throw new Error(data.message || 'Submission failed');
       }
     })
     .catch(err => {

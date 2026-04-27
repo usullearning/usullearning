@@ -25,9 +25,12 @@ zone_name = "usullearning.com"
 # ── Secrets ───────────────────────────────────────────────────────────────────
 # These are NOT stored here. Set them once via:
 #   wrangler secret put ALLOWED_ORIGIN     → https://usullearning.com
-#   wrangler secret put WEB3FORMS_KEY      → your Web3Forms access key
 #   wrangler secret put BREVO_KEY          → your Brevo API key
 #   wrangler secret put BREVO_LIST_ID      → your Brevo list ID (numeric)
 #
-# Or set them in the Cloudflare Dashboard:
+# WEB3FORMS_KEY is no longer used by this Worker — contact submissions now go
+# directly from the browser to https://api.web3forms.com (free plan, no proxy needed).
+# The access key lives in main.js as WEB3FORMS_KEY constant.
+#
+# Or set secrets in the Cloudflare Dashboard:
 #   Workers & Pages → usul-proxy → Settings → Variables and Secrets
