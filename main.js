@@ -121,6 +121,27 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 150);
   }, { passive: true });
+
+  // ── Form button wiring (replaces inline onclick attributes) ──────────────
+  // Contact form
+  document.getElementById('contactSubmitBtn')
+    ?.addEventListener('click', handleContact);
+
+  // Books page — print edition interest
+  const podBtn = document.getElementById('notifyPODBtn');
+  if (podBtn) {
+    podBtn.addEventListener('click', () =>
+      handleNotifySubmit('notifyEmailPOD', podBtn, SUBSCRIBE_URL)
+    );
+  }
+
+  // Books page — volume notifications footer form
+  const footerBtn = document.getElementById('notifyFooterBtn');
+  if (footerBtn) {
+    footerBtn.addEventListener('click', () =>
+      handleNotifySubmit('notifyEmailFooter', footerBtn, SUBSCRIBE_URL)
+    );
+  }
 });
 
 /* ============================================================
@@ -204,13 +225,6 @@ function handleNotifySubmit(inputId, btnEl, url) {
     });
 }
 
-function handleNotifyFooter(event) {
-  handleNotifySubmit('notifyEmailFooter', event?.target, SUBSCRIBE_URL);
-}
-
-function handleNotifyPOD(event) {
-  handleNotifySubmit('notifyEmailPOD', event?.target, SUBSCRIBE_URL);
-}
 
 /* ============================================================
    HELPERS
@@ -232,7 +246,7 @@ function showError(msg, nearId) {
   el.textContent = msg;
   el.style.cssText = 'color:#c0392b;font-size:0.82rem;margin-top:10px;font-weight:500;';
   const anchor = nearId
-    ? document.getElementById(nearId)?.closest('.form-group')
+    ? (document.getElementById(nearId)?.closest('.form-group') ?? document.getElementById(nearId))
     : document.querySelector('.contact__form .btn--primary');
   anchor?.insertAdjacentElement('afterend', el);
   setTimeout(() => el.remove(), 6000);
