@@ -1,11 +1,10 @@
 /* ============================================================
    Usul Learning — main.js
-   Frontend for Pages Functions endpoints
+   Frontend for Worker endpoints
    ============================================================ */
 
 const CONTACT_URL = '/api/contact';
-const REGISTER_INTEREST_URL = '/api/register-interest';
-const NOTIFY_ME_URL = '/api/notify-me';
+const SUBSCRIBE_URL = '/api/subscribe';
 
 /* ── DEVICE CAPABILITY DETECTION ───────────────────────────── */
 
@@ -20,7 +19,6 @@ if (isSmallScreen || prefersReducedMotion) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-
   const nav = document.querySelector('.nav');
   const onScroll = () => nav?.classList.toggle('scrolled', window.scrollY > 40);
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -29,9 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.nav__toggle');
   const mobileNav = document.querySelector('.nav__mobile');
   const header = document.querySelector('header[role="banner"]');
-  if (mobileNav && header && !header.contains(mobileNav)) {
-    header.appendChild(mobileNav);
-  }
+  if (mobileNav && header && !header.contains(mobileNav)) header.appendChild(mobileNav);
 
   if (toggle) toggle.setAttribute('aria-expanded', 'false');
 
@@ -74,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const fadeEls = document.querySelectorAll('.fade-up');
-
   if (isSmallScreen || prefersReducedMotion) {
     fadeEls.forEach(el => el.classList.add('visible'));
   } else if ('IntersectionObserver' in window) {
@@ -104,10 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (cookieBanner && !localStorage.getItem('ul_cookie_consent')) {
     cookieBanner.classList.remove('hidden');
   }
+
   cookieAccept?.addEventListener('click', () => {
     localStorage.setItem('ul_cookie_consent', 'accepted');
     cookieBanner.classList.add('hidden');
   });
+
   cookieDecline?.addEventListener('click', () => {
     localStorage.setItem('ul_cookie_consent', 'declined');
     cookieBanner.classList.add('hidden');
@@ -208,11 +205,11 @@ function handleNotifySubmit(inputId, btnEl, url) {
 }
 
 function handleNotifyFooter(event) {
-  handleNotifySubmit('notifyEmailFooter', event?.target, NOTIFY_ME_URL);
+  handleNotifySubmit('notifyEmailFooter', event?.target, SUBSCRIBE_URL);
 }
 
 function handleNotifyPOD(event) {
-  handleNotifySubmit('notifyEmailPOD', event?.target, REGISTER_INTEREST_URL);
+  handleNotifySubmit('notifyEmailPOD', event?.target, SUBSCRIBE_URL);
 }
 
 /* ============================================================
