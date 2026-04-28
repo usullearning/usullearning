@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message Received — Usul Learning</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" href="assets/logo/usullearning-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .thankyou-section { min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 4rem 1rem; }
+    .thankyou-icon { font-size: 3rem; margin-bottom: 1.5rem; }
+    .thankyou-title { font-family: var(--font-serif, 'Cormorant Garamond', serif); font-size: 2.5rem; margin-bottom: 1rem; color: var(--navy, #0a1628); }
+    .thankyou-text { font-family: var(--font-body, 'Jost', sans-serif); font-size: 1.1rem; color: #555; max-width: 520px; margin: 0 auto 2rem; line-height: 1.7; }
+    .thankyou-back { margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header role="banner">
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo" aria-label="Usul Learning — Home">
+          <img src="assets/logo/usullearning-logo.svg" alt="" class="nav__logo-img" aria-hidden="true" />
+          <div class="nav__logo-divider" aria-hidden="true"></div>
+          <div class="nav__logo-text">
+            <span class="nav__logo-name">Usul Learning</span>
+          </div>
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="/" class="nav__link">Home</a></li>
+          <li><a href="books.html" class="nav__link">Books</a></li>
+          <li><a href="methodology.html" class="nav__link">Methodology</a></li>
+          <li><a href="sources.html" class="nav__link">Sources</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="nav__cta">Get in Touch</a>
+        <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="mobileNav" role="menu">
+    <a href="/" class="nav__link">Home</a>
+    <a href="books.html" class="nav__link">Books</a>
+    <a href="methodology.html" class="nav__link">Methodology</a>
+    <a href="sources.html" class="nav__link">Sources</a>
+    <a href="about.html" class="nav__link">About</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+  </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <section class="thankyou-section">
+      <div>
+        <div class="thankyou-icon">✉️</div>
+        <h1 class="thankyou-title">Your message has been received.</h1>
+        <p class="thankyou-text">We'll respond personally within a few days, in sha' Allah. Jazākallāhu khayran for reaching out.</p>
+        <div class="thankyou-back">
+          <a href="/" class="btn btn--gold">Return to Home</a>
+          <a href="books.html" class="btn btn--outline" style="margin-left:1rem;">Explore Books</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__bottom">
+        <div class="footer__bottom-row footer__bottom-row--top">
+          <span class="footer__bottom-copy">© 2026 Usul Learning. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

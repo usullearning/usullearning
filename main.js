@@ -194,7 +194,7 @@ function handleContact() {
       if (data.success) {
         setBtn(btn, 'Message Sent ✓', false, '#0d4a47');
         [nameEl, emailEl, subjectEl, msgEl].forEach(el => { if (el) el.value = ''; });
-        setTimeout(() => setBtn(btn, orig, true), 4000);
+        setTimeout(() => { window.location.href = 'thank-you.html'; }, 1200);
       } else {
         // Log the full Web3Forms response so the real reason is visible in console.
         console.error('Web3Forms response:', status, data);
