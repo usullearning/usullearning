@@ -1133,6 +1133,77 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 .support-sadaqah { opacity: 0.6; font-size: 0.8em; }
 
 
+
+/* ── Thank You page ───────────────────────────────────────────── */
+.ty-section { padding: 64px 0; }
+
+.ty-card {
+  max-width: 620px;
+  margin: 0 auto;
+  background: var(--cream);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 52px 48px;
+  text-align: center;
+  box-shadow: 0 2px 40px rgba(10,26,40,0.06);
+}
+@media (max-width: 600px) {
+  .ty-card { padding: 40px 24px; }
+}
+
+.ty-card__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-mid) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 28px;
+  box-shadow: 0 4px 20px rgba(13,74,71,0.25);
+}
+.ty-card__icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--gold-pale);
+  stroke-width: 1.5;
+}
+
+.ty-card__content { margin-bottom: 32px; }
+
+.ty-card__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.ty-card__text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.ty-card__divider {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 32px;
+}
+
+.ty-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 /* ── legal pages (privacy, terms, support-policy) ────────────── */
 
 .legal-section { background: var(--cream); }
