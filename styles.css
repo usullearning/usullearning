@@ -46,6 +46,21 @@ img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 
+/* ── Issue 4: Safe-area insets for notches, Dynamic Island, foldable hinges ── */
+/* Nav: extend into safe area at top */
+.nav {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+/* Cookie banner: extend into safe area at bottom */
+.cookie-banner {
+  padding-bottom: calc(14px + env(safe-area-inset-bottom));
+  padding-left: calc(var(--container-px) + env(safe-area-inset-left));
+  padding-right: calc(var(--container-px) + env(safe-area-inset-right));
+}
+/* Footer: ensure bottom content clears safe area */
+.footer { padding-bottom: calc(20px + env(safe-area-inset-bottom)); }
+
 /* ── FLUID TYPOGRAPHY — base (below 360px) ──────────────────── */
 h1,h2,h3,h4 { font-family: var(--font-display); color: var(--ink); line-height: 1.12; font-weight: 400; }
 h1 { font-size: clamp(1.75rem, 8vw, 2.4rem); }
@@ -131,7 +146,7 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 .hero__title em { font-style: italic; color: var(--gold); }
 .hero__title strong { font-weight: 600; color: #fff; }
 .hero__subtitle { font-family: var(--font-display); font-size: clamp(1rem, 2vw, 1.4rem); color: rgba(247,242,233,0.65); font-weight: 300; line-height: 1.4; margin: 0 0 20px; }
-.hero__desc { font-size: clamp(0.9rem, 1.8vw, 1rem); color: rgba(247,242,233,0.72); font-weight: 400; line-height: 1.75; margin: 0 0 24px; max-width: 480px; }
+.hero__desc { font-size: clamp(0.9rem, 1.8vw, 1rem); color: rgba(247,242,233,0.72); font-weight: 400; line-height: 1.75; margin: 0 auto 24px; max-width: 480px; }
 .hero__verse { margin: 0 0 24px; padding: 16px 18px; border-left: 2px solid var(--gold); background: rgba(200,146,42,0.07); border-radius: 0 var(--radius) var(--radius) 0; text-align: left; }
 .hero__verse .arabic { font-size: clamp(1rem, 4vw, 1.35rem); margin-bottom: 8px; display: block; color: var(--gold-light); }
 .hero__verse p { font-family: var(--font-display); font-size: clamp(0.875rem, 3vw, 1.05rem); font-style: italic; color: rgba(247,242,233,0.7); font-weight: 400; margin-bottom: 6px; }
@@ -466,14 +481,25 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
   .nav__logo-divider { margin: 0 14px; }
   /* Hero */
   .hero__content { padding: 60px 0 72px; gap: 40px; }
-  .hero__actions { flex-direction: row; justify-content: center; }
+  /* hero__actions left-align already set at 700px for tablets; keep centred only for non-2col hero (below 700px) */
+  .hero__actions { flex-direction: row; }
   .hero__actions .btn { width: auto; }
   .book-3d { width: min(460px, 70vw); }
   /* Two-column layouts */
   .about__grid { grid-template-columns: 1fr 1fr; gap: 52px; }
   .about__visual { order: 0; }
   .about__card-stack { width: 100%; }
-  .about__card--back { display: block; }
+  .about__card--back {
+    display: block;
+    position: absolute;
+    top: -8px; left: 8px; right: -8px; bottom: 8px;
+    background: white;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(200,146,42,0.07);
+    box-shadow: 0 4px 20px rgba(8,15,15,0.08);
+    z-index: 0;
+  }
+  .about__card { position: relative; z-index: 1; }
   .support__inner { grid-template-columns: 1fr 1fr; gap: 52px; }
   .contact__grid { grid-template-columns: 1fr 1fr; gap: 52px; }
   .contact__form { padding: 36px; }
@@ -503,6 +529,34 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
   .section-header { margin-bottom: 44px; }
 }
 
+/* ── 700px — iPad mini 6 portrait (744px), Samsung Tab S9 portrait (753px) ── */
+/* Dead zone between 600px and 820px — these tablets need 2-col layouts       */
+@media (min-width: 700px) {
+  /* Hero: switch to 2-column so the book isn't stacked above all the text */
+  .hero__content {
+    grid-template-columns: 52fr 48fr;
+    gap: 40px;
+    text-align: left;
+    align-items: center;
+    min-height: 0;
+    padding: 64px 0;
+  }
+  .hero__visual { order: 0; }
+  .hero__eyebrow { justify-content: flex-start; }
+  .hero__desc { margin: 0 0 24px; } /* left-align desc inside left column */
+  .hero__actions { flex-direction: row; justify-content: flex-start; width: auto; }
+  .hero__actions .btn { width: auto; }
+  .book-3d { width: 100%; max-width: 340px; }
+
+  /* Content grids: go 2-col at 700px (currently wait until 768px) */
+  .about__grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .about__visual { order: 0; }
+  .support__inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .contact__grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .contact__form { padding: 28px; }
+  .books__grid { max-width: 640px; }
+}
+
 /* ── 820px — iPad Air, Samsung Tab S9 ──────────────────────── */
 @media (min-width: 820px) {
   :root { --container-px: 36px; }
@@ -518,6 +572,8 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 
 /* ── 900px — Z Fold inner, Pixel Fold, large tablets ───────── */
 @media (min-width: 900px) {
+  .section { padding: 76px 0; }
+  .section--sm { padding: 64px 0; }
   .nav__links { gap: 28px; }
   .method__grid { grid-template-columns: repeat(3,1fr); }
   .method__card:last-child { grid-column: auto; max-width: 100%; margin: 0; }
@@ -561,6 +617,11 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
   .support__inner { gap: 80px; }
   .contact__grid { gap: 80px; }
   .footer__grid { gap: 52px; }
+  /* Issues 13+14: books grid was staying at 860px max — expand for landscape tablets and laptops */
+  .books__grid { max-width: 1000px; gap: 40px; }
+  .book-card__3d { width: 300px; height: 169px; }
+  .book-card__visual { padding: 36px 36px 0; }
+  .book-card__body { padding: 32px 36px 36px; }
 }
 
 /* ── 1440px — MacBook Air 15", wide desktops ────────────────── */
@@ -581,15 +642,31 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 
 /* ── 2560px — QHD, iMac, ultrawide ─────────────────────────── */
 @media (min-width: 2560px) {
-  :root { --max-w: 1400px; }
+  /* Issue 10: expand max-width so content isn't only 36% of screen */
+  :root { --max-w: 1600px; }
   html { font-size: 18px; }
-  .container { max-width: 1400px; }
+  .container { max-width: 1600px; }
 }
 
 /* ── 3840px — 4K and beyond ─────────────────────────────────── */
 @media (min-width: 3840px) {
+  /* Issue 11: further expand at true 4K so layout fills screen comfortably */
+  :root { --max-w: 1920px; }
   html { font-size: 20px; }
-  .container { max-width: 1400px; }
+  .container { max-width: 1920px; }
+  /* Scale decorative elements proportionally */
+  .ornament__line { width: 60px; }
+  .ornament__diamond { width: 9px; height: 9px; }
+  .ornament__dot { width: 5px; height: 5px; }
+}
+
+/* ── Issue 9: TV / large-screen coarse pointer (remote, game controller) ── */
+/* Targets smart TVs (1920+) and any coarse-pointer device on a large screen */
+@media (min-width: 1920px) and (pointer: coarse) {
+  .btn { min-height: 72px; padding: 18px 48px; font-size: 0.9rem; }
+  .nav__link { min-height: 72px; }
+  .footer__link { min-height: 52px; }
+  .footer__social-link { width: 56px; height: 56px; }
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -637,10 +714,39 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
   .legal-content h3, .legal-content p, .legal-content li { color: #000; }
 }
 
-/* Touch devices — remove hover transforms */
+/* ── Issue 7: CSS-native hover guard (hover:hover) + JS .no-hover fallback ── */
+/* Hover transforms only fire on devices that genuinely support hover */
+@media (hover: none) {
+  .book-card:hover,
+  .source-pill:hover,
+  .method__card:hover { transform: none !important; box-shadow: none !important; }
+  .btn--primary:hover,
+  .btn--outline:hover,
+  .btn--gold:hover { transform: none; }
+}
+
+/* JS .no-hover class as belt-and-suspenders fallback */
 .no-hover .book-card:hover,
 .no-hover .source-pill:hover,
-.no-hover .method__card:hover { transform: none; box-shadow: none; }
+.no-hover .method__card:hover { transform: none; box-shadow: none; } ──────── */
+/* iPhone SE landscape (667×375), iPhone 16 landscape (844×390)  */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero { min-height: auto; }
+  .hero__content {
+    min-height: auto;
+    padding: 20px 0 28px;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+    align-items: center;
+  }
+  .hero__visual { order: 0; }
+  .hero__eyebrow { justify-content: flex-start; }
+  .hero__actions { flex-direction: row; justify-content: flex-start; }
+  .hero__actions .btn { width: auto; }
+  .book-3d { width: min(180px, 40vw); max-width: 180px; animation: none; }
+  .hero__verse { display: none; } /* hide verse in landscape to save space */
+}
 
 /* ── SEMANTIC WRAPPER STUBS ─────────────────────────────────── */
 /* These classes are used as semantic divs; layout is handled    */
@@ -967,11 +1073,11 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
   display: block; width: 20px; height: 1px; background: var(--gold);
 }
 .upi-card__rows { display: flex; flex-direction: column; gap: 13px; }
-.upi-card__row { display: flex; gap: 16px; font-size: 0.92rem; align-items: baseline; }
+.upi-card__row { display: flex; gap: 16px; font-size: 0.92rem; align-items: baseline; flex-wrap: wrap; }
 .upi-card__row-divider { height: 1px; background: var(--border-soft); margin: 4px 0; }
 .upi-card__key {
-  min-width: 150px; color: var(--text-muted); font-weight: 500;
-  font-size: 0.78rem; letter-spacing: 0.04em;
+  min-width: 120px; color: var(--text-muted); font-weight: 500;
+  font-size: 0.78rem; letter-spacing: 0.04em; flex-shrink: 0;
 }
 .upi-card__val { color: var(--ink); font-weight: 400; }
 .upi-card__val--mono {
