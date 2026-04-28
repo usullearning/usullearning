@@ -318,3 +318,26 @@ Cloudflare Dashboard → Workers & Pages → `usul-proxy` → Settings → Trigg
 <p align="center">
   <sub>© 2026 &nbsp;<b>USUL LEARNING</b> &nbsp;·&nbsp; All Rights Reserved</sub>
 </p>
+
+## Post-Deploy Action Items (Dashboard Only)
+
+### Google Search Console (HIGH 4)
+Use the URL Inspection tool to request indexing for:
+- https://usullearning.com/
+- https://usullearning.com/books.html
+- https://usullearning.com/about.html
+- https://usullearning.com/methodology.html
+- https://usullearning.com/contact.html
+- https://usullearning.com/sources.html
+- https://usullearning.com/support.html
+
+### Cloudflare Web Analytics (HIGH 5)
+Dashboard → Analytics & Logs → Web Analytics → Add site → paste script tag into all HTML pages.
+
+### Cloudflare Image Optimisation (LOW 2)
+Dashboard → Speed → Optimization → Content Optimization → Enable Polish (Lossy) + WebP.
+
+### Social Sharing Preview (LOW 4)
+Test https://usullearning.com in:
+- Facebook Sharing Debugger: https://developers.facebook.com/tools/debug
+- Twitter Card Validator: https://cards-dev.twitter.com/validator
