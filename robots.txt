@@ -3,6 +3,7 @@ Disallow: /api/
 Disallow: /privacy.html
 Disallow: /terms.html
 Disallow: /support-policy.html
+Disallow: /support.html
 Disallow: /thank-you.html
 Allow: /
 Sitemap: https://usullearning.com/sitemap.xml
