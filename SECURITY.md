@@ -1,174 +1,199 @@
-# Usul Learning — Security Guide
-**Current architecture, what's protected, and what you need to do.**
+# Usul Learning — Security
+
+**A production-grade static site with Cloudflare-enforced security, strict content policies, and no server-side exposure.**
 
 ---
 
-## Architecture overview
+## Reporting Security Issues
 
-| Component | Technology | How it's secured |
-|---|---|---|
-| Static site | Cloudflare Pages | HTTPS enforced, security headers via `_headers` |
-| Contact form | Web3Forms (browser-direct) | No secrets exposed — access key is safe client-side per Web3Forms docs |
-| Subscribe form | Cloudflare Worker → Brevo | `BREVO_KEY` stored as Worker secret, never in client code |
-| DNS & edge | Cloudflare | WAF, DDoS, Bot Fight Mode, CSP |
+For responsible disclosure of vulnerabilities or security concerns, please contact:
 
----
+**contact@usullearning.com**
 
-## HTTP security headers (`_headers`)
-
-Every page response carries these headers, enforced by Cloudflare Pages.
-
-| Header | What it does |
-|---|---|
-| `Strict-Transport-Security` | Forces HTTPS for 1 year — users can never visit over HTTP |
-| `X-Frame-Options: DENY` | Prevents your pages being embedded in iframes (clickjacking) |
-| `X-Content-Type-Options` | Stops browsers guessing file types — prevents MIME confusion attacks |
-| `Referrer-Policy` | Doesn't leak your URLs when users click external links |
-| `Permissions-Policy` | Disables camera, microphone, geolocation — features the site never uses |
-| `Content-Security-Policy` | Browser-enforced allowlist — see below |
-| `Cross-Origin-Opener-Policy` | Isolates your browsing context from external windows |
-| `Cross-Origin-Resource-Policy` | Prevents other sites embedding your resources |
+We aim to respond within 72 hours. There is no bug bounty programme at this time, but responsible disclosures are acknowledged and taken seriously.
 
 ---
 
-## Content Security Policy (CSP)
+## Architecture Overview
 
-The CSP is a browser-enforced allowlist. Anything not listed is blocked — including injected scripts from XSS attacks.
-
-**Current allowlist:**
-
-| Directive | Allowed sources | Reason |
-|---|---|---|
-| `script-src` | `'self'` · `static.cloudflareinsights.com` | `main.js` + Cloudflare Web Analytics beacon (injected at edge) |
-| `style-src` | `'self'` · `fonts.googleapis.com` | `styles.css` + Google Fonts CSS |
-| `font-src` | `fonts.gstatic.com` | Google Fonts files |
-| `img-src` | `'self'` · `data:` | Local assets + inline SVGs |
-| `connect-src` | `'self'` · `api.web3forms.com` · `cloudflareinsights.com` | Subscribe Worker + contact form + analytics beacon reporting |
-| `form-action` | `'self'` · `api.web3forms.com` | Form submission targets |
-| `frame-ancestors` | `'none'` | Belt-and-suspenders clickjacking protection |
-| `base-uri` | `'self'` | Prevents base-tag injection attacks |
-
-> **Note on `static.cloudflareinsights.com`:** Cloudflare automatically injects its Web Analytics beacon script at the edge. It must be in `script-src` or browsers will block it and log a CSP violation. This is expected behaviour, not a security risk — it is Cloudflare's own first-party script.
+| Component | Technology | Security posture |
+|:---|:---|:---|
+| Static site | Cloudflare Pages | HTTPS enforced, comprehensive security headers |
+| Contact form | Web3Forms | No server secrets — browser-direct by design |
+| Subscribe form | Cloudflare Worker → Brevo | API credentials stored as encrypted Worker secrets |
+| DNS & edge | Cloudflare | WAF, DDoS mitigation, Bot Fight Mode, email obfuscation |
+| Analytics | Cloudflare Web Analytics | Cookie-free, no user tracking, edge-injected |
 
 ---
 
-## Form security
+## HTTP Security Headers
 
-### Contact form
-- Submits **directly from the browser** to `https://api.web3forms.com/submit`
-- The Web3Forms access key is a client-side constant in `main.js` — this is correct and safe per Web3Forms' own documentation. The key only allows form submissions to your inbox; it cannot access account settings or other forms
-- Honeypot field (`_gotcha`) silently drops bot submissions that fill all fields
+All responses carry the following headers, enforced at the edge via Cloudflare Pages `_headers`.
+
+| Header | Protection |
+|:---|:---|
+| `Strict-Transport-Security` | HTTPS enforced for 1 year — no HTTP fallback |
+| `X-Frame-Options: DENY` | Clickjacking prevention |
+| `X-Content-Type-Options` | MIME-type confusion protection |
+| `Referrer-Policy` | Referrer data withheld from external navigation |
+| `Permissions-Policy` | Camera, microphone, geolocation disabled at browser level |
+| `Content-Security-Policy` | Strict script, style, font, and connection allowlist |
+| `Cross-Origin-Opener-Policy` | Browsing context isolation |
+| `Cross-Origin-Resource-Policy` | Prevents cross-origin resource embedding |
+
+---
+
+## Content Security Policy
+
+A strict browser-enforced allowlist blocks anything not explicitly permitted — including injected scripts.
+
+| Directive | Permitted sources |
+|:---|:---|
+| `script-src` | Same-origin · Cloudflare Web Analytics beacon |
+| `style-src` | Same-origin · Google Fonts CSS |
+| `font-src` | Google Fonts static files |
+| `img-src` | Same-origin · inline data URIs |
+| `connect-src` | Same-origin · Web3Forms API · Cloudflare Analytics |
+| `form-action` | Same-origin · Web3Forms API |
+| `frame-ancestors` | None — clickjacking blocked at policy level |
+| `base-uri` | Same-origin — base-tag injection prevented |
+
+> Cloudflare Web Analytics is injected at the edge by Cloudflare's own infrastructure. Its beacon domain is explicitly permitted in `script-src` to prevent CSP violations.
+
+---
+
+## Form Security
+
+### Contact Form
+- Submits directly from the browser — no server-side proxying
+- Access key is intentionally client-side; scoped to form submissions only with no account access
+- Honeypot field silently discards automated submissions
 - Client-side rate limiting: 30-second cooldown between submissions
+- Successful submission redirects to a confirmation page
 
-### Subscribe form
-- POSTs to `/api/subscribe` → routed by Cloudflare to the `usul-proxy` Worker
-- The Worker proxies to Brevo using `BREVO_KEY` stored as a **Worker secret** (never in client code)
-- `updateEnabled: true` handles re-subscribes cleanly without errors
-- Client-side rate limiting: 10-second cooldown per input field
-
----
-
-## Worker secrets
-
-The `usul-proxy` Worker uses these secrets, set in Cloudflare Dashboard → Workers & Pages → `usul-proxy` → Settings → Variables and Secrets:
-
-| Secret | Purpose | Exposure risk |
-|---|---|---|
-| `ALLOWED_ORIGIN` | CORS origin check — rejects requests from other domains | None — not sensitive |
-| `BREVO_KEY` | Brevo contacts API write access | Server-side only — never reaches the browser |
-| `BREVO_LIST_ID` | Target list ID (2) | Low — numeric, not a credential |
-
-`WEB3FORMS_KEY` is **not** a Worker secret. It is intentionally client-side in `main.js`. Web3Forms explicitly states that access keys are safe to expose in browser code.
+### Subscribe Form
+- Routed through a Cloudflare Worker — the client never interacts with the email provider directly
+- API credentials stored as encrypted Worker secrets — never present in client code
+- Re-subscription handled gracefully without errors
+- Client-side rate limiting: 10-second cooldown per field interaction
 
 ---
 
-## What you need to do (one-time setup)
+## Credential Management
 
-### Confirm Worker route is active ← most important
-Without this, subscribe form POSTs return 405 from Pages instead of reaching the Worker.
+All sensitive values are stored as encrypted Cloudflare Worker secrets, configured through the Cloudflare Dashboard. No credentials appear in source code, environment files, or this repository.
 
-1. Cloudflare Dashboard → Workers & Pages → `usul-proxy` → Settings → Triggers → Routes
-2. Confirm `usullearning.com/api/*` is listed
-3. If missing: Add route → `usullearning.com/api/*` → zone: `usullearning.com`
-
-### Enable Cloudflare WAF (Free tier)
-Edge-level rate limiting and bot protection — much stronger than client-side guards.
-
-1. Cloudflare Dashboard → your domain → Security → WAF
-2. Enable "Managed Rules" — the free OWASP ruleset
-3. Rate Limiting Rules → Create Rule:
-   - Path: `/api/*`
-   - Requests: more than 20 per minute per IP → Block for 1 minute
-
-### Enable Cloudflare Bot Fight Mode
-Dashboard → Security → Bots → Bot Fight Mode → On
-
-### Enable Cloudflare Email Obfuscation
-Protects `contact@usullearning.com` from email scrapers.
-Dashboard → Scrape Shield → Email Address Obfuscation → On
-
-### Enable Brevo double opt-in (recommended)
-Satisfies GDPR/DPDPA consent requirements and filters fake subscribers.
-1. Brevo → Contacts → Lists → your list → Settings
-2. Enable "Double opt-in" → set a confirmation email template
+| Type | Storage | Client exposure |
+|:---|:---|:---|
+| Email provider API key | Worker secret (encrypted) | None |
+| Subscriber list identifier | Worker secret | None |
+| Origin validation value | Worker secret | None |
+| Web3Forms access key | Client-side JS | By design — submission-scoped only |
 
 ---
 
-## Security posture summary
+## Edge & Infrastructure Protections
 
-| Area | Status | Notes |
-|---|---|---|
-| HTTPS enforced (HSTS) | ✅ | Via `_headers` |
-| Clickjacking protection | ✅ | `X-Frame-Options` + `frame-ancestors 'none'` |
-| XSS mitigation (CSP) | ✅ | Strict allowlist via `_headers` |
-| MIME sniffing protection | ✅ | Via `_headers` |
-| Cross-origin isolation | ✅ | `COOP` + `CORP` headers |
-| External links (`noopener`) | ✅ | Already present on all social links |
-| Contact form honeypot | ✅ | `_gotcha` field |
-| Client-side rate limiting | ✅ | 30s contact / 10s subscribe |
-| BREVO_KEY exposure | ✅ | Server-side Worker secret only |
-| Web3Forms key exposure | ✅ | Intentionally client-side — safe by design |
-| Cloudflare Web Analytics CSP | ✅ | `static.cloudflareinsights.com` in `script-src` |
-| Worker route active | ⚠️ | Confirm `usullearning.com/api/*` in Dashboard |
-| Server-side rate limiting | ⚠️ | Enable Cloudflare WAF (free) |
-| Email obfuscation | ⚠️ | Enable in Cloudflare Scrape Shield |
-| Bot protection | ⚠️ | Enable Cloudflare Bot Fight Mode |
-| Brevo double opt-in | ⚠️ | Recommended for GDPR/DPDPA compliance |
-
-The four ⚠️ items (excluding Worker route) are free Cloudflare dashboard toggles — no code changes needed.
+| Protection | Status |
+|:---|:---|
+| HTTPS enforced (HSTS) | ✅ Active |
+| www → apex redirect (301) | ✅ Active |
+| Cloudflare DDoS mitigation | ✅ Active |
+| Email address obfuscation | ✅ Active — Cloudflare Scrape Shield |
+| Cloudflare Web Analytics | ✅ Active — privacy-first |
+| Bot Fight Mode | ⚠️ Recommended — enable in Security → Bots |
+| WAF Managed Rules (OWASP) | ⚠️ Recommended — enable in Security → WAF |
+| Brevo double opt-in | ⚠️ Recommended — reduces spam and satisfies DPDPA consent requirements |
 
 ---
 
-## What this site does NOT need
+## Security Posture Summary
 
-- **SSL certificate management** — Cloudflare handles this automatically
-- **Database security** — no database
-- **Authentication or session security** — no user accounts
-- **Server-side input sanitisation** — Web3Forms and Brevo handle this on their end
-- **DDoS protection** — Cloudflare free tier covers this
+| Control | Status |
+|:---|:---|
+| HTTPS / HSTS | ✅ |
+| Clickjacking (X-Frame + CSP) | ✅ |
+| XSS mitigation (CSP) | ✅ |
+| MIME sniffing protection | ✅ |
+| Cross-origin isolation (COOP + CORP) | ✅ |
+| External link protection (`noopener`) | ✅ |
+| Form honeypot | ✅ |
+| Client-side rate limiting | ✅ |
+| API credential isolation | ✅ |
+| Email obfuscation | ✅ |
+| Bot protection | ⚠️ Pending — dashboard toggle |
+| WAF / server-side rate limiting | ⚠️ Pending — dashboard toggle |
+| Subscriber double opt-in | ⚠️ Pending — recommended |
 
 ---
 
-## What was changed in previous releases
+## Reduced Attack Surface
 
-| Release | Change |
-|---|---|
-| Initial | `_headers` file with HSTS, CSP, clickjacking, MIME, referrer, permissions headers |
-| Initial | Client-side rate limiting (30s contact, 10s subscribe) |
+This site deliberately has no unnecessary complexity. The following are architectural non-requirements:
+
+- **No SSL management** — handled automatically by Cloudflare
+- **No database** — static files only
+- **No user authentication** — no accounts, no sessions
+- **No server-side input handling** — third-party providers handle all validation
+- **No server infrastructure to patch** — fully edge-deployed
+
+---
+
+## Sensitive Information Policy
+
+| Item | Status |
+|:---|:---|
+| Bank account number | Removed from all public pages |
+| IFSC code | Removed from all public pages |
+| UPI ID | Displayed on support page — UPI IDs are publicly shared by design |
+| Udyam registration number | Displayed in footer — required for Indian legal compliance |
+| ORCID identifier | Public — academic research identifier |
+
+---
+
+## Change Log
+
+| Category | Change |
+|:---|:---|
+| Initial | HSTS, CSP, clickjacking, MIME, referrer, and permissions headers via `_headers` |
+| Initial | Client-side rate limiting — 30s contact, 10s subscribe |
 | Initial | Honeypot field on contact form |
-| Audit fixes | Removed Pages Functions stubs that conflicted with Worker routing |
-| Audit fixes | Fixed `corsResponse` — was setting `'null'` string instead of omitting header |
-| Audit fixes | Worker now normalises `www.` origin to apex before comparison |
-| Audit fixes | Brevo success check extended to include HTTP 200 alongside 201/204 |
-| Audit fixes | Removed `upgrade-insecure-requests` (redundant with Cloudflare HTTPS) |
-| Audit fixes | Inline `onclick` attributes replaced with `addEventListener` (CSP compliance) |
-| Audit fixes | `robots.txt` updated with `Disallow: /api/` |
-| Form fix | `redirect: 'false'` string removed from Web3Forms payload (caused HTML response instead of JSON) |
-| Form fix | `BREVO_LIST_ID` fallback hardcoded to `2` so missing secret doesn't break subscriptions |
-| Architecture | Contact form moved from Worker proxy to browser-direct (Web3Forms free plan limitation) |
-| Architecture | `handleContact` removed from Worker — Worker now handles `/api/subscribe` only |
-| CSP | `api.web3forms.com` added to `connect-src` and `form-action` |
-| CSP | `static.cloudflareinsights.com` added to `script-src` (Cloudflare beacon) |
-| CSP | `cloudflareinsights.com` added to `connect-src` (beacon reporting) |
+| Audit | Removed Pages Functions stubs conflicting with Worker routing |
+| Audit | CORS response fixed — header was incorrectly set to string `'null'` |
+| Audit | Worker normalises `www.` origin to apex before validation |
+| Audit | Brevo success check extended to cover HTTP 200 alongside 201/204 |
+| Audit | Removed `upgrade-insecure-requests` — redundant with Cloudflare HTTPS |
+| Audit | Inline `onclick` replaced with `addEventListener` for CSP compliance |
+| Audit | `/api/` added to `robots.txt` Disallow |
+| Form | Web3Forms payload corrected — `redirect: 'false'` string removed |
+| Form | List ID fallback hardcoded to prevent silent subscribe failures |
+| Form | Contact form redirects to confirmation page on success |
+| Architecture | Contact form moved from Worker proxy to browser-direct |
+| Architecture | Worker scope reduced to subscribe endpoint only |
+| CSP | Web3Forms API added to `connect-src` and `form-action` |
+| CSP | Cloudflare Analytics beacon added to `script-src` and `connect-src` |
+| SEO | Nav links standardised to `href="/"` across all pages |
+| SEO | `noindex` applied to legal, support, and utility pages |
+| SEO | Sitemap cleaned — content pages only |
+| SEO | `robots.txt` updated — non-indexable paths disallowed |
+| SEO | Meta descriptions updated across all pages |
+| SEO | OG image dimensions declared — resolves Facebook preview |
+| SEO | JSON-LD Book schema added |
+| SEO | Canonical tags verified across all pages |
+| Content | Author photo replaced — base64 blob removed |
+| Content | Notify Me UX added to books page |
+| Content | Post-contact confirmation page created |
+| Content | Privacy policy updated to DPDP Act 2023 |
+| Content | Privacy policy sections renumbered sequentially |
+| Content | CCPA references removed — not applicable jurisdiction |
+| Support page | Bank transfer details removed |
+| Support page | Payment section redesigned and corrected |
+| Support page | Excluded from search indexing and sitemap |
+| Infrastructure | www → apex redirect created in Cloudflare |
+| Infrastructure | Cloudflare Web Analytics enabled |
+| Infrastructure | Legacy Google Sites unpublished |
+| Accessibility | Visually-hidden heading bridge added on methodology page |
+
+---
 
 *Jazakumullahu Khayran — may Allah protect this work.*
