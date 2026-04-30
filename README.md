@@ -44,6 +44,8 @@
 
 Usul Learning is a structured Islamic publishing platform built on modern Cloudflare infrastructure. It publishes authentic long-form educational works grounded in the Qur'an, Sunnah, and Shafi'i scholarly tradition — delivered as a static, fast, privacy-respecting website with no framework dependencies. All content is free. All infrastructure is production-grade.
 
+The website is developed and maintained by **Usul Creative Solutions**, the technical arm responsible for platform architecture, deployment, and infrastructure. The educational content and publications are owned and produced by **Usul Learning**.
+
 ---
 
 <!-- ═══════════════════════════════════════════════════════════ -->
@@ -140,77 +142,26 @@ This is not a content feed. It is a **long-form knowledge system**, built volume
 
 ### Form Architecture
 
-**Contact form** — submits directly from the browser to Web3Forms. No server-side proxying is involved. On successful submission, the visitor is redirected to `thank-you.html`. Bot submissions are filtered via a honeypot field and a 30-second client-side cooldown.
+```
+Contact Form
+└── Browser → Web3Forms API (direct)
+    └── Email delivered to contact@usullearning.com
 
-**Subscribe form** — POSTs to `/api/subscribe`, routed by Cloudflare to a dedicated Worker. The Worker securely proxies the request to Brevo using credentials stored as Worker secrets — never exposed to the client.
-
-<br/>
-
----
-
-<!-- ═══════════════════════════════════════════════════════════ -->
-<!--   DEPLOYMENT                                               -->
-<!-- ═══════════════════════════════════════════════════════════ -->
-
-<p align="center"><img src="https://capsule-render.vercel.app/api?type=rect&color=0:FF6B1A,100:FF9A3C&height=3&width=80&section=header"/></p>
-<h3 align="center">Deployment</h3>
-<p align="center"><img src="https://capsule-render.vercel.app/api?type=rect&color=0:FF6B1A,100:FF9A3C&height=3&width=80&section=header"/></p>
-
-<br/>
-
-**Static site (Pages)** — push to `main`. Cloudflare Pages deploys automatically.
-
-**Worker** — deploy separately via Wrangler:
-```bash
-wrangler deploy --config wrangler.worker.toml
+Subscribe Form
+└── Browser → Cloudflare Worker → Brevo API
+    └── Subscriber added to list (credentials never exposed)
 ```
 
-**Worker environment variables** — configure in Cloudflare Dashboard under Workers & Pages → Settings → Variables and Secrets:
-
-| Variable | Description |
-|:---|:---|
-| `ALLOWED_ORIGIN` | Permitted request origin for CORS validation |
-| `BREVO_KEY` | Brevo API credential — server-side only |
-| `BREVO_LIST_ID` | Target subscriber list identifier |
-
-> The Web3Forms access key lives in client-side JavaScript by design — this is explicitly documented as safe by Web3Forms for their free plan.
-
-**Worker route** — confirm `usullearning.com/api/*` is listed under Workers & Pages → Triggers → Routes. Without this, subscribe requests return 405 from Pages instead of reaching the Worker.
-
 <br/>
 
 ---
 
 <!-- ═══════════════════════════════════════════════════════════ -->
-<!--   SEO & TECHNICAL NOTES                                    -->
+<!--   SITE MAP                                                 -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 
 <p align="center"><img src="https://capsule-render.vercel.app/api?type=rect&color=0:FF6B1A,100:FF9A3C&height=3&width=80&section=header"/></p>
-<h3 align="center">SEO & Technical Notes</h3>
-<p align="center"><img src="https://capsule-render.vercel.app/api?type=rect&color=0:FF6B1A,100:FF9A3C&height=3&width=80&section=header"/></p>
-
-<br/>
-
-| Area | Detail |
-|:---|:---|
-| **Canonical domain** | `https://usullearning.com` — apex only, www redirects via Cloudflare 301 |
-| **OG image** | `assets/og-preview.jpg` — 1200×630px, declared with explicit dimensions on all pages |
-| **Book schema** | JSON-LD structured data on `books.html` for both volumes |
-| **Heading hierarchy** | H1 → H2 → H3 enforced across all pages; visually-hidden H2 bridge on methodology page |
-| **robots.txt** | Disallows `/api/`, all legal pages, support page, and thank-you page |
-| **Search Console** | Verified — all six content pages indexed, sitemap submitted |
-| **Analytics** | Cloudflare Web Analytics — edge-injected, cookie-free, DPDP Act 2023 compliant |
-
-<br/>
-
----
-
-<!-- ═══════════════════════════════════════════════════════════ -->
-<!--   PAGE INVENTORY                                           -->
-<!-- ═══════════════════════════════════════════════════════════ -->
-
-<p align="center"><img src="https://capsule-render.vercel.app/api?type=rect&color=0:FF6B1A,100:FF9A3C&height=3&width=80&section=header"/></p>
-<h3 align="center">Page Inventory</h3>
+<h3 align="center">Site Map</h3>
 <p align="center"><img src="https://capsule-render.vercel.app/api?type=rect&color=0:FF6B1A,100:FF9A3C&height=3&width=80&section=header"/></p>
 
 <br/>
@@ -339,6 +290,45 @@ wrangler deploy --config wrangler.worker.toml
 </div>
 
 <br/>
+
+---
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--   OWNERSHIP & ATTRIBUTION                                  -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+
+## Ownership & Attribution
+
+This project is developed and maintained by **Usul Creative Solutions** — responsible for all technical architecture, infrastructure, and deployment.
+
+All educational content and publications are owned by **Usul Learning** — the publishing platform this codebase powers.
+
+All rights are ultimately held by **Muhammed Faheem**.
+
+---
+
+## License
+
+The source code of this project is licensed under the **MIT License**. See [`LICENSE`](./LICENSE) for full terms.
+
+> This applies to HTML, CSS, JavaScript, Worker scripts, configuration files, and all other code in this repository. It does **not** apply to educational content, books, PDFs, or branded assets.
+
+---
+
+## Content & Intellectual Property
+
+All educational content, PDFs, books, and materials published through Usul Learning are the intellectual property of **Usul Learning** and are **not** covered under the MIT License. See [`CONTENT-LICENSE.md`](./CONTENT-LICENSE.md) for full terms.
+
+**You may:**
+- View and share content for personal, non-commercial use
+- Link to content with appropriate attribution
+
+**You may not:**
+- Modify or adapt the content
+- Redistribute commercially
+- Republish under a different name or claim authorship
+
+For permissions or licensing enquiries, contact: **contact@usullearning.com**
 
 ---
 
