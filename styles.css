@@ -336,10 +336,10 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 .footer__brand-text { display: flex; flex-direction: column; gap: 3px; }
 .footer__brand-name { font-family: var(--font-brand); font-size: 1rem; font-weight: 700; color: var(--gold-pale); letter-spacing: 0.02em; line-height: 1; }
 .footer__brand-desc { font-size: 0.82rem; color: rgba(247,242,233,0.72); line-height: 1.75; font-weight: 400; max-width: 100%; margin-bottom: 14px; }
-.footer__social { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-.footer__social-link { width: 32px; height: 32px; background: transparent; border: none; border-radius: 0; display: flex; align-items: center; justify-content: center; color: rgba(200,146,42,0.55); transition: opacity var(--transition), transform var(--transition); }
-.footer__social-link:hover, .footer__social-link:focus-visible { opacity: 1; transform: translateY(-2px); color: var(--gold); outline: none; }
-.footer__social-link svg { width: 20px; height: 20px; }
+.footer__social { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.footer__social-link { width: 36px; height: 36px; background: transparent; border: none; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: rgba(247,242,233,0.38); transition: color var(--transition), background var(--transition), transform var(--transition); }
+.footer__social-link:hover, .footer__social-link:focus-visible { color: var(--gold); background: rgba(200,146,42,0.1); transform: translateY(-2px); outline: none; }
+.footer__social-link svg { width: 22px; height: 22px; }
 .footer__col-title { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
 .footer__links { display: flex; flex-direction: column; gap: 8px; }
 .footer__link { font-size: 0.84rem; color: rgba(247,242,233,0.72); transition: color var(--transition); min-height: 32px; display: flex; align-items: center; }
