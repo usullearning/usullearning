@@ -235,6 +235,8 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 .book-card__topic { padding: 3px 10px; background: rgba(200,146,42,0.09); border: 1px solid rgba(200,146,42,0.2); border-radius: 20px; font-size: 0.65rem; font-weight: 500; color: var(--gold-light); letter-spacing: 0.06em; }
 .book-card__status { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid rgba(200,146,42,0.22); border-radius: var(--radius); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(200,146,42,0.68); min-height: 44px; }
 .book-card__status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2.2s infinite; }
+.book-card__status--review { color: var(--text-on-dark); }
+.book-card__status-dot--review { background: #e8a045; animation: pulse 2.8s infinite; }
 @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.4; transform:scale(0.75); } }
 
 /* ── HADITH BANNER ──────────────────────────────────────────── */
@@ -1152,6 +1154,95 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 .support-sadaqah { opacity: 0.6; font-size: 0.8em; }
 
 
+
+
+
+/* ── Mission/Vision divider ──────────────────────────────────── */
+.mission-divider {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 48px auto 40px;
+}
+
+/* ── Author's Note ────────────────────────────────────────────── */
+.author-note-section {
+  background: var(--cream-dark);
+  position: relative;
+}
+.author-note-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-soft), transparent);
+}
+.author-note-inner {
+  max-width: 740px;
+  margin: 0 auto;
+}
+.author-note-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.author-note-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.author-note-rule {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto;
+}
+.author-note-body {
+  font-family: var(--font-body);
+}
+.author-note-para {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--text-body);
+  margin-bottom: 1.5em;
+}
+.author-note-para--opening {
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+.author-note-para--closing {
+  margin-bottom: 40px;
+}
+.author-note-sig {
+  border-top: 1px solid var(--border-soft);
+  padding-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.author-note-sig__arabic {
+  font-family: var(--font-arabic);
+  font-size: 1.1rem;
+  color: var(--gold);
+  direction: rtl;
+  margin-bottom: 4px;
+}
+.author-note-sig__name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+.author-note-sig__place {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
 
 /* ── Thank You page ───────────────────────────────────────────── */
 .ty-section { padding: 64px 0; }
