@@ -233,9 +233,9 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 .book-card__desc { font-size: 0.875rem; line-height: 1.8; color: var(--text-on-dark); font-weight: 400; margin-bottom: 18px; }
 .book-card__topics { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
 .book-card__topic { padding: 3px 10px; background: rgba(200,146,42,0.09); border: 1px solid rgba(200,146,42,0.2); border-radius: 20px; font-size: 0.65rem; font-weight: 500; color: var(--gold-light); letter-spacing: 0.06em; }
-.book-card__status { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid rgba(200,146,42,0.22); border-radius: var(--radius); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(200,146,42,0.68); min-height: 44px; }
+.book-card__status { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid rgba(200,146,42,0.28); border-radius: var(--radius); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(200,146,42,0.88); min-height: 44px; }
 .book-card__status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2.2s infinite; }
-.book-card__status--review { color: var(--text-on-dark); }
+.book-card__status--review { color: rgba(247,242,233,0.95); }
 .book-card__status-dot--review { background: #e8a045; animation: pulse 2.8s infinite; }
 @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.4; transform:scale(0.75); } }
 
@@ -878,9 +878,10 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 
 /* Gold anchor link in body content (legal pages, contact) */
 .link--gold {
-  color: var(--gold);
+  color: var(--emerald-soft);
   text-decoration: underline;
   text-underline-offset: 3px;
+  text-decoration-color: rgba(26,100,96,0.4);
 }
 
 /* ── about.html ──────────────────────────────────────────────── */
@@ -1017,7 +1018,7 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 }
 .book-detail--alt { background: var(--cream); }
 .book-detail__vol2-badge {
-  border-color: rgba(200,146,42,0.25); color: rgba(200,146,42,0.65);
+  border-color: rgba(200,146,42,0.3); color: rgba(200,146,42,0.88);
 }
 .book-detail__vol2-dot { background: var(--gold-light); }
 
@@ -1221,10 +1222,10 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
   font-family: monospace; letter-spacing: 0.06em; margin-bottom: 12px;
 }
 .support-qr__note {
-  font-size: 0.78rem; color: rgba(240,226,192,0.4);
+  font-size: 0.78rem; color: rgba(240,226,192,0.78);
   font-weight: 400; line-height: 1.7;
 }
-.support-sadaqah { opacity: 0.6; font-size: 0.8em; }
+.support-sadaqah { opacity: 0.82; font-size: 0.8em; }
 
 
 
