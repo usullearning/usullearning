@@ -145,7 +145,7 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 .hero__title { font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 300; line-height: 1.08; margin-bottom: 8px; color: var(--gold-pale); letter-spacing: -0.01em; }
 .hero__title em { font-style: italic; color: var(--gold); }
 .hero__title strong { font-weight: 600; color: #fff; }
-.hero__subtitle { font-family: var(--font-display); font-size: clamp(1rem, 2vw, 1.4rem); color: rgba(247,242,233,0.65); font-weight: 300; line-height: 1.4; margin: 0 0 20px; }
+.hero__subtitle { font-family: var(--font-display); font-size: clamp(1rem, 2vw, 1.4rem); color: rgba(247,242,233,0.82); font-weight: 400; line-height: 1.4; margin: 0 0 20px; }
 .hero__desc { font-size: clamp(0.9rem, 1.8vw, 1rem); color: rgba(247,242,233,0.72); font-weight: 400; line-height: 1.75; margin: 0 auto 24px; max-width: 480px; }
 .hero__verse { margin: 0 0 24px; padding: 16px 18px; border-left: 2px solid var(--gold); background: rgba(200,146,42,0.07); border-radius: 0 var(--radius) var(--radius) 0; text-align: left; }
 .hero__verse .arabic { font-size: clamp(1rem, 4vw, 1.35rem); margin-bottom: 8px; display: block; color: var(--gold-light); }
@@ -197,7 +197,7 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 /* ── ABOUT ──────────────────────────────────────────────────── */
 .about { background: var(--cream); }
 .about__grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
-.about__pull-quote { font-family: var(--font-display); font-size: clamp(1.2rem, 4.5vw, 1.7rem); font-style: italic; color: var(--emerald); line-height: 1.4; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border-soft); font-weight: 300; }
+.about__pull-quote { font-family: var(--font-display); font-size: clamp(1.2rem, 4.5vw, 1.7rem); font-style: italic; color: var(--ink-soft); line-height: 1.4; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border-soft); font-weight: 400; }
 .about__body { font-size: clamp(0.875rem, 3vw, 1.02rem); line-height: 1.9; color: var(--text-body); font-weight: 400; margin-bottom: 16px; }
 .about__author { display: flex; align-items: center; gap: 14px; margin-top: 28px; padding: 16px 20px; background: var(--cream-dark); border-radius: var(--radius); border: 1px solid var(--border-soft); }
 .about__author-avatar { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 2px solid rgba(200,146,42,0.22); }
@@ -244,7 +244,7 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 .hadith-banner::before { content: ''; position: absolute; top: -60px; left: 50%; transform: translateX(-50%); width: 400px; height: 400px; background: radial-gradient(ellipse, rgba(200,146,42,0.05) 0%, transparent 65%); border-radius: 50%; pointer-events: none; }
 .hadith-banner__inner { position: relative; z-index: 2; text-align: center; max-width: 720px; margin: 0 auto; }
 .hadith-banner__text { font-family: var(--font-display); font-size: clamp(1.1rem, 4vw, 2.1rem); font-style: italic; color: var(--gold-pale); line-height: 1.5; margin-bottom: 16px; font-weight: 300; }
-.hadith-banner__source { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(200,146,42,0.52); }
+.hadith-banner__source { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(200,146,42,0.82); }
 
 /* ── METHODOLOGY CARDS ──────────────────────────────────────── */
 .method { background: var(--cream); }
@@ -325,7 +325,7 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 .notify-section__inner { display: flex; flex-direction: column; gap: 20px; }
 .notify-section__text { flex: 1; }
 .notify-section__title { font-family: var(--font-display); font-size: clamp(1.2rem, 5vw, 2rem); color: var(--gold-pale); font-weight: 300; margin-bottom: 8px; line-height: 1.2; }
-.notify-section__desc { font-size: 0.875rem; color: rgba(247,242,233,0.52); font-weight: 300; line-height: 1.7; margin: 0; }
+.notify-section__desc { font-size: 0.875rem; color: rgba(247,242,233,0.82); font-weight: 400; line-height: 1.7; margin: 0; }
 .notify-section__form { display: flex; flex-direction: column; gap: 10px; width: 100%; }
 .notify-consent { font-size: 0.7rem; color: rgba(247,242,233,0.5); margin-top: 6px; display: block; }
 
@@ -355,13 +355,13 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 .footer__bottom-row--top { }
 .footer__bottom-row--base { }
 .footer__bottom-copy { font-size: 0.82rem; font-weight: 500; color: rgba(247,242,233,0.88); letter-spacing: 0.01em; }
-.footer__bottom-meta { font-size: 0.78rem; color: rgba(247,242,233,0.5); letter-spacing: 0.02em; }
-.footer__bottom-attr { font-size: 0.78rem; color: rgba(247,242,233,0.5); }
+.footer__bottom-meta { font-size: 0.78rem; color: rgba(247,242,233,0.68); letter-spacing: 0.02em; }
+.footer__bottom-attr { font-size: 0.78rem; color: rgba(247,242,233,0.68); }
 .footer__bottom-links { display: flex; align-items: center; gap: 10px; }
 .footer__bottom-link { font-size: 0.78rem; color: rgba(200,146,42,0.65); transition: color var(--transition); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(200,146,42,0.3); }
 .footer__bottom-link:hover { color: var(--gold); text-decoration-color: var(--gold); }
 .footer__bottom-sep { color: rgba(247,242,233,0.25); font-size: 0.7rem; }
-.footer__bottom-disclaimer { font-size: 0.74rem; color: rgba(247,242,233,0.35); font-style: italic; text-align: center; padding-top: 4px; border-top: 1px solid rgba(200,146,42,0.06); }
+.footer__bottom-disclaimer { font-size: 0.74rem; color: rgba(247,242,233,0.55); font-style: italic; text-align: center; padding-top: 4px; border-top: 1px solid rgba(200,146,42,0.06); }
 
 /* Mobile: stack both rows */
 
@@ -373,7 +373,7 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 .page-hero__eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 0.64rem; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; position: relative; z-index: 2; }
 .page-hero__eyebrow::before, .page-hero__eyebrow::after { content: ''; display: block; width: 18px; height: 1px; background: rgba(200,146,42,0.55); }
 .page-hero__title { font-family: var(--font-display); font-size: clamp(1.9rem, 7vw, 4.2rem); color: var(--gold-pale); font-weight: 300; position: relative; z-index: 2; margin-bottom: 14px; letter-spacing: -0.01em; }
-.page-hero__desc { font-size: clamp(0.875rem, 3vw, 1.02rem); color: rgba(247,242,233,0.7); font-weight: 400; position: relative; z-index: 2; max-width: 520px; margin: 0 auto; line-height: 1.85; }
+.page-hero__desc { font-size: clamp(0.875rem, 3vw, 1.02rem); color: rgba(247,242,233,0.88); font-weight: 400; position: relative; z-index: 2; max-width: 520px; margin: 0 auto; line-height: 1.85; }
 
 /* ── CONTACT ────────────────────────────────────────────────── */
 .contact { background: var(--cream-dark); }
@@ -710,6 +710,79 @@ p  { font-size: clamp(0.875rem, 3.5vw, 1rem); line-height: 1.8; color: var(--tex
 }
 
 /* Print */
+
+/* ── Selective text justification (desktop only, English prose only) ── */
+/* Applied only to multi-line paragraph content. Never to headings,      */
+/* Arabic text, labels, buttons, captions, or short single-line text.    */
+@media (min-width: 640px) {
+
+  /* About page — mission, vision, author bio */
+  .about-bio__body,
+  .about-bio-text__para {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  /* About page — author's note (longest prose on the site) */
+  .author-note-para {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  /* Methodology — principle descriptions */
+  .method-step__content p,
+  .method__desc {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  /* Books — volume descriptions */
+  .book-detail__para {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  /* Sources — intro paragraph */
+  .sources-intro__para {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  /* Support page — why support description */
+  .support__desc {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  /* Homepage — about section body */
+  .about__body {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  /* Contact page — info description */
+  .contact__info-desc {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  /* Books page — series intro */
+  .books-intro__body {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+}
+
 @media print {
   .nav, .nav__mobile, .cookie-banner, .notify-section,
   .book-3d, .hadith-banner, .footer__social, .btn,
