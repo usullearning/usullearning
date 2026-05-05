@@ -808,11 +808,6 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
   .hero__verse .arabic { text-align: center; }
 }
 
-/* ── Books page: clear separator between volume sections ──────── */
-.book-detail--alt {
-  border-top: 1px solid var(--border-soft);
-}
-
 @media print {
   .nav, .nav__mobile, .cookie-banner, .notify-section,
   .book-3d, .hadith-banner, .footer__social, .btn,
@@ -1084,7 +1079,8 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 }
 .book-detail__context-link:hover { color: var(--emerald); }
 
-.book-detail--alt { background: var(--cream); }
+/* Books page — alt volume: cream background + separator */
+.book-detail--alt { background: var(--cream); border-top: 1px solid var(--border-soft); }
 .book-detail__vol2-badge {
   border-color: rgba(200,146,42,0.3); color: rgba(200,146,42,0.88);
 }
@@ -1426,6 +1422,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 
 /* books notify section inline button override */
 .notify-btn-inline { padding: 11px 24px; font-size: 0.74rem; }
+.btn-cta-mt { margin-top: 0.75rem; display: inline-block; }
 
 /* ── Image helper classes (extracted from inline styles) ─────── */
 .hero__author-bubble-img {
