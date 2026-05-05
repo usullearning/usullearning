@@ -393,6 +393,17 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 
 /* ── SOURCES ────────────────────────────────────────────────── */
 .sources__grid { display: grid; grid-template-columns: 1fr; gap: 10px; max-width: 860px; margin: 0 auto; }
+
+/* Sources page — single-item grid: centre the lone pill */
+.sources__grid--single {
+  display: flex;
+  justify-content: center;
+}
+.sources__grid--single .source-pill {
+  max-width: 400px;
+  width: 100%;
+}
+
 .source-pill { padding: 14px 18px; background: white; border: 1px solid var(--border-soft); border-radius: var(--radius); text-align: center; transition: all var(--transition); }
 .source-pill:hover { border-color: var(--border); box-shadow: 0 4px 18px rgba(8,15,15,0.08); transform: translateY(-2px); }
 .source-pill__name { font-family: var(--font-display); font-size: clamp(0.95rem, 3.5vw, 1.05rem); color: var(--ink); margin-bottom: 4px; font-weight: 400; }
