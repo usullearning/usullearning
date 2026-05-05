@@ -64,10 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const _path = window.location.pathname;
+  const currentPage = (_path === '/' || _path === '/index.html') ? '/' : _path.split('/').pop();
   document.querySelectorAll('.nav__link').forEach(link => {
     const href = link.getAttribute('href');
-    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+    if (href === currentPage || (currentPage === '/' && (href === '/' || href === 'index.html'))) {
       link.classList.add('active');
     }
   });
