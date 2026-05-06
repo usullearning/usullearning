@@ -348,12 +348,13 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 .footer__links { display: flex; flex-direction: column; gap: 8px; }
 .footer__link { font-size: 0.84rem; color: rgba(247,242,233,0.72); transition: color var(--transition); min-height: 32px; display: flex; align-items: center; }
 .footer__link:hover, .footer__link:focus-visible { color: var(--gold-pale); outline: none; }
-.footer__bottom { display: flex; flex-direction: column; gap: 10px; padding-top: 4px; }
+.footer__bottom { padding-top: 4px; }
 
 /* Footer bottom — two-row readable layout */
 .footer__bottom-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; }
 .footer__bottom-row--top { }
 .footer__bottom-row--base { }
+.footer__bottom-single { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 14px; }
 .footer__bottom-copy { font-size: 0.82rem; font-weight: 500; color: rgba(247,242,233,0.88); letter-spacing: 0.01em; }
 .footer__bottom-meta { font-size: 0.78rem; color: rgba(247,242,233,0.68); letter-spacing: 0.02em; }
 .footer__bottom-attr { font-size: 0.78rem; color: rgba(247,242,233,0.68); }
@@ -361,6 +362,8 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 .footer__bottom-link { font-size: 0.78rem; color: rgba(200,146,42,0.65); transition: color var(--transition); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(200,146,42,0.3); }
 .footer__bottom-link:hover { color: var(--gold); text-decoration-color: var(--gold); }
 .footer__bottom-sep { color: rgba(247,242,233,0.25); font-size: 0.7rem; }
+.footer__bottom-attr-link { font-size: 0.78rem; color: rgba(200,146,42,0.72); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(200,146,42,0.25); transition: color var(--transition); }
+.footer__bottom-attr-link:hover { color: var(--gold); text-decoration-color: var(--gold); }
 .footer__bottom-disclaimer { font-size: 0.74rem; color: rgba(247,242,233,0.55); font-style: italic; text-align: center; padding-top: 4px; border-top: 1px solid rgba(200,146,42,0.06); }
 
 /* Mobile: stack both rows */
