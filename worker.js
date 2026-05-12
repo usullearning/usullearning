@@ -1,3 +1,5 @@
+// Rate limiting should be handled through Cloudflare WAF/Turnstile/KV in a future phase, not in-memory Worker state.
+
 export default {
   async fetch(request, env) {
     const origin = request.headers.get('Origin') || '';
@@ -41,14 +43,16 @@ async function handleSubscribe(request, env, origin, allowed) {
   }
 
   const { email } = body;
-  if (!email || !email.includes('@')) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email || !emailRegex.test(email)) {
     return corsResponse(JSON.stringify({ error: 'Invalid email' }), 400, origin, allowed);
   }
 
-  // List ID 2 is the known Usul Learning subscriber list.
-  // BREVO_LIST_ID secret overrides this; fallback ensures it works even if the
-  // secret was not yet set in the Worker dashboard.
-  const listId = parseInt(env.BREVO_LIST_ID, 10) || 2;
+  // BREVO_LIST_ID must be set and valid; no fallback to prevent misconfiguration
+  if (!env.BREVO_LIST_ID || isNaN(parseInt(env.BREVO_LIST_ID, 10))) {
+    return corsResponse(JSON.stringify({ error: 'Server configuration error' }), 500, origin, allowed);
+  }
+  const listId = parseInt(env.BREVO_LIST_ID, 10);
 
   const upstream = await fetch('https://api.brevo.com/v3/contacts', {
     method: 'POST',
