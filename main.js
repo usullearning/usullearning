@@ -64,11 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const _path = window.location.pathname;
-  const currentPage = (_path === '/' || _path === '/index.html') ? '/' : _path.split('/').pop();
+  const _path = window.location.pathname.replace(/\/$/, '');
+  const currentPage = (_path === '' || _path === '/') ? '/' : _path.split('/').pop();
   document.querySelectorAll('.nav__link').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPage || (currentPage === '/' && (href === '/' || href === 'index.html'))) {
+    const href = (link.getAttribute('href') || '').replace(/\/$/, '');
+    if (href === currentPage || (currentPage === '/' && (href === '' || href === '/'))) {
       link.classList.add('active');
     }
   });
@@ -195,7 +195,7 @@ function handleContact() {
       if (data.success) {
         setBtn(btn, 'Message Sent ✓', false, '#0d4a47');
         [nameEl, emailEl, subjectEl, msgEl].forEach(el => { if (el) el.value = ''; });
-        setTimeout(() => { window.location.href = 'thank-you.html'; }, 1200);
+        setTimeout(() => { window.location.href = 'thank-you'; }, 1200);
       } else {
         // Log the full Web3Forms response so the real reason is visible in console.
         console.error('Web3Forms response:', status, data);
