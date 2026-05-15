@@ -1256,6 +1256,10 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 }
 .support-sadaqah { opacity: 0.82; font-size: 0.8em; }
 
+@media (max-width: 359px) {
+  .support__visual { padding-left: 8px; padding-right: 8px; }
+}
+
 
 
 
