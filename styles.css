@@ -105,7 +105,7 @@ p  { font-size: clamp(0.9rem, 3vw, 1.05rem); line-height: 1.85; color: var(--tex
 .nav.scrolled { background: rgba(8,15,15,0.99); box-shadow: 0 4px 32px rgba(0,0,0,0.4); }
 .nav__inner { display: flex; align-items: center; width: 100%; }
 .nav__logo { display: flex; align-items: center; gap: 0; flex-shrink: 0; }
-.nav__logo-img { height: 32px; width: auto; filter: brightness(0) invert(1); opacity: 0.88; }
+.nav__logo-img { height: 32px; width: auto; object-fit: contain; opacity: 0.88; }
 .nav__logo-divider { width: 1px; height: 24px; background: linear-gradient(180deg, transparent, rgba(200,146,42,0.45), transparent); margin: 0 10px; }
 .nav__logo-text { display: flex; flex-direction: column; gap: 3px; }
 .nav__logo-name { font-family: var(--font-brand); font-size: 1rem; font-weight: 700; color: var(--gold-pale); letter-spacing: 0.03em; line-height: 1; }
@@ -335,7 +335,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 .footer { background: var(--dark); padding: 36px 0 20px; border-top: 1px solid rgba(200,146,42,0.1); }
 .footer__grid { display: grid; grid-template-columns: 1fr; gap: 28px; padding-bottom: 24px; border-bottom: 1px solid rgba(200,146,42,0.08); margin-bottom: 20px; }
 .footer__brand-logo { display: flex; align-items: center; gap: 0; margin-bottom: 14px; }
-.footer__brand-img { height: 30px; width: auto; filter: brightness(0) invert(1); opacity: 0.82; }
+.footer__brand-img { height: 30px; width: auto; object-fit: contain; opacity: 0.82; }
 .footer__brand-divider { width: 1px; height: 24px; background: linear-gradient(180deg, transparent, rgba(200,146,42,0.4), transparent); margin: 0 12px; }
 .footer__brand-text { display: flex; flex-direction: column; gap: 3px; }
 .footer__brand-name { font-family: var(--font-brand); font-size: 1rem; font-weight: 700; color: var(--gold-pale); letter-spacing: 0.02em; line-height: 1; }
@@ -894,7 +894,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 /* Footer brand logo image (was inline on index + support) */
 .footer__brand-logo-img {
   height: 52px; width: auto;
-  filter: brightness(0) invert(1); opacity: 0.88;
+  object-fit: contain; opacity: 0.88;
   display: block; margin: 0 auto;
 }
 
@@ -1175,7 +1175,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 .hero__stats-wrap { text-align: center; margin-top: 44px; }
 .support-logo-img {
   height: 52px; width: auto;
-  filter: brightness(0) invert(1); opacity: 0.88;
+  object-fit: contain; opacity: 0.88;
   display: block; margin: 0 auto;
 }
 .hero__eyebrow-left { justify-content: flex-start; }
@@ -1225,7 +1225,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 .support-qr__top { margin-bottom: 24px; position: relative; z-index: 2; }
 .support-qr-logo {
   height: 52px; width: auto;
-  filter: brightness(0) invert(1); opacity: 0.88;
+  object-fit: contain; opacity: 0.88;
   margin: 0 auto 16px; display: block;
 }
 .support-qr__brand {
