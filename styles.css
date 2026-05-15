@@ -493,10 +493,6 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
   html { font-size: 16px; }
   .section { padding: 68px 0; }
   .section--sm { padding: 56px 0; }
-  /* Show desktop nav */
-  .nav__links { display: flex; }
-  .nav__cta { display: inline-flex; }
-  .nav__toggle { display: none; }
   .nav__logo-img { height: 36px; }
   .nav__logo-name { font-size: 1.15rem; }
   .nav__logo-divider { margin: 0 14px; }
@@ -611,6 +607,10 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
   html { font-size: 16px; }
   .section { padding: 76px 0; }
   .section--sm { padding: 64px 0; }
+  /* Show desktop nav when there is enough horizontal space */
+  .nav__links { display: flex; }
+  .nav__cta { display: inline-flex; }
+  .nav__toggle { display: none; }
   .nav__links { gap: 32px; }
   .nav__logo-img { height: 40px; }
   .hero__content { gap: 64px; padding: 72px 0 88px; }
