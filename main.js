@@ -128,8 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Form button wiring (replaces inline onclick attributes) ──────────────
   // Contact form
-  document.getElementById('contactSubmitBtn')
-    ?.addEventListener('click', handleContact);
+  document.getElementById('contactForm')
+    ?.addEventListener('submit', handleContact);
 
   // Books page — print edition interest
   const podBtn = document.getElementById('notifyPODBtn');
@@ -152,7 +152,9 @@ document.addEventListener('DOMContentLoaded', () => {
    CONTACT FORM
    ============================================================ */
 
-function handleContact() {
+function handleContact(event) {
+  event?.preventDefault();
+
   const nameEl = document.getElementById('name');
   const emailEl = document.getElementById('email');
   const subjectEl = document.getElementById('subject');
@@ -165,7 +167,7 @@ function handleContact() {
   const message = msgEl?.value?.trim();
 
   if (!name) { nameEl?.focus(); return showError('Please enter your name.'); }
-  if (!email || !email.includes('@')) { emailEl?.focus(); return showError('Please enter a valid email address.'); }
+  if (!email || !emailEl?.checkValidity()) { emailEl?.focus(); return showError('Please enter a valid email address.'); }
   if (!message) { msgEl?.focus(); return showError('Please write your message.'); }
 
   if (document.querySelector('input[name="_gotcha"]')?.value) return;

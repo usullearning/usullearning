@@ -111,27 +111,29 @@
             <div class="contact-note__alt-heading">Send a Message</div>
             <p class="contact-note__alt-sub">Fill in the form below and we'll get back to you.</p>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="name">Your Name</label>
-            <input type="text" class="form-input" id="name" name="name" placeholder="e.g. Aisha Muḥammad" required autocomplete="name" />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="email">Email Address</label>
-            <input type="email" class="form-input" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="subject">Subject</label>
-            <input type="text" class="form-input" id="subject" name="subject" placeholder="e.g. Question about Volume I" />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="message">Message</label>
-            <textarea class="form-textarea" id="message" name="message" placeholder="Write your message here..." required></textarea>
-          </div>
-          <input type="text" name="_gotcha" class="input--hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <button id="contactSubmitBtn" class="btn btn--primary contact-form__btn-full">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Send Message
-          </button>
+          <form id="contactForm">
+            <div class="form-group">
+              <label class="form-label" for="name">Your Name</label>
+              <input type="text" class="form-input" id="name" name="name" placeholder="e.g. Aisha Muḥammad" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input type="email" class="form-input" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="subject">Subject</label>
+              <input type="text" class="form-input" id="subject" name="subject" placeholder="e.g. Question about Volume I" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="message">Message</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Write your message here..." required></textarea>
+            </div>
+            <input type="text" name="_gotcha" class="input--hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <button id="contactSubmitBtn" type="submit" class="btn btn--primary contact-form__btn-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Message
+            </button>
+          </form>
           <p class="contact-form__privacy">Or email directly at <a href="mailto:contact@usullearning.com" class="contact-form__privacy-link">contact@usullearning.com</a></p>
         </div>
       </div>
