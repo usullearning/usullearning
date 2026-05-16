@@ -128,8 +128,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Form button wiring (replaces inline onclick attributes) ──────────────
   // Contact form
-  document.getElementById('contactForm')
-    ?.addEventListener('submit', handleContact);
+  const contactForm = document.getElementById('contactForm');
+  contactForm?.addEventListener('submit', handleContact);
+  contactForm
+    ?.querySelectorAll('#name, #email, #subject, #message')
+    .forEach(field => {
+      field.addEventListener('input', () => {
+        if (!field.required || field.checkValidity()) {
+          field.removeAttribute('aria-invalid');
+        }
+      });
+    });
 
   // Books page — print edition interest
   const podBtn = document.getElementById('notifyPODBtn');
@@ -166,15 +175,19 @@ function handleContact(event) {
   const subject = subjectEl?.value?.trim();
   const message = msgEl?.value?.trim();
 
-  if (!name) { nameEl?.focus(); return showError('Please enter your name.'); }
-  if (!email || !emailEl?.checkValidity()) { emailEl?.focus(); return showError('Please enter a valid email address.'); }
-  if (!message) { msgEl?.focus(); return showError('Please write your message.'); }
+  clearContactInvalid([nameEl, emailEl, subjectEl, msgEl]);
+  setContactStatus('');
+
+  if (!name) return showContactError(nameEl, 'Please enter your name.');
+  if (!email || !emailEl?.checkValidity()) return showContactError(emailEl, 'Please enter a valid email address.');
+  if (!message) return showContactError(msgEl, 'Please write your message.');
 
   if (document.querySelector('input[name="_gotcha"]')?.value) return;
-  if (isRateLimited('contact', 30000)) return;
+  if (isContactRateLimited()) return;
 
   const orig = btn?.textContent || 'Send Message';
   setBtn(btn, 'Sending…', false);
+  setContactStatus('Sending…');
 
   fetch(CONTACT_URL, {
     method: 'POST',
@@ -197,6 +210,8 @@ function handleContact(event) {
       if (data.success) {
         setBtn(btn, 'Message Sent ✓', false, '#0d4a47');
         [nameEl, emailEl, subjectEl, msgEl].forEach(el => { if (el) el.value = ''; });
+        clearContactInvalid([nameEl, emailEl, subjectEl, msgEl]);
+        setContactStatus('Message Sent ✓');
         setTimeout(() => { window.location.href = 'thank-you'; }, 1200);
       } else {
         // Log the full Web3Forms response so the real reason is visible in console.
@@ -209,10 +224,10 @@ function handleContact(event) {
       // TypeError means a network-level block (ad blocker, CORS, offline).
       // Give the user a specific, actionable message rather than a generic one.
       if (err instanceof TypeError) {
-        showError('Your browser or an extension blocked the form. Please disable your ad blocker for this site, or email us at contact@usullearning.com');
+        showContactFailure('Your browser or an extension blocked the form. Please disable your ad blocker for this site, or email us at contact@usullearning.com');
       } else {
         console.error('Contact form:', err.message);
-        showError('Could not send — ' + err.message + '. Please email contact@usullearning.com');
+        showContactFailure('Could not send — ' + err.message + '. Please email contact@usullearning.com');
       }
     });
 }
@@ -265,6 +280,42 @@ function setBtn(btn, text, enabled, bg = '', color = '') {
   btn.style.opacity = enabled ? '' : '0.8';
   btn.style.background = bg;
   btn.style.color = color;
+}
+
+function setContactStatus(msg, role = 'status', live = 'polite') {
+  const status = document.getElementById('contactFormStatus');
+  if (!status) return;
+  status.setAttribute('role', role);
+  status.setAttribute('aria-live', live);
+  status.textContent = msg;
+}
+
+function clearContactInvalid(fields) {
+  fields.forEach(field => field?.removeAttribute('aria-invalid'));
+}
+
+function showContactError(field, msg) {
+  field?.setAttribute('aria-invalid', 'true');
+  setContactStatus(msg, 'alert', 'assertive');
+  field?.focus();
+  showError(msg);
+}
+
+function showContactFailure(msg) {
+  setContactStatus(msg, 'alert', 'assertive');
+  showError(msg);
+}
+
+function isContactRateLimited() {
+  const now = Date.now();
+  if (_rateLimits.contact && now - _rateLimits.contact < 30000) {
+    const remaining = Math.ceil((30000 - (now - _rateLimits.contact)) / 1000);
+    const msg = `Please wait ${remaining} seconds before trying again.`;
+    showContactFailure(msg);
+    return true;
+  }
+  _rateLimits.contact = now;
+  return false;
 }
 
 function showError(msg, nearId) {
