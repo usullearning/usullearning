@@ -43,7 +43,7 @@
   # frame-ancestors 'none'      — belt-and-suspenders vs clickjacking
   # base-uri    'self'          — prevent base tag injection
   # form-action 'self'          — prevent form hijacking
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-ShZ6aWBCQeCd9ieTCklUp4qWZyuo4OgV7OiaUqQsUFc=' 'sha256-hXohG2CMzWtUj9snsNmInaaW8BFX3LBOHXfdDnHW3BM=' 'sha256-GDcmR9eg1QyNAduLCqeatsFR0X0YcQRRx4lReTLWnkc=' 'sha256-B60VJgtxW0U/9SSie8IaYLN7m93Cw7tx1n2ePPmo4YE=' 'sha256-kObiD5a/DV6DbbO1O8QJsUiyI1ER2dQUTmT+0ZrrNd8=' 'sha256-BUAqHA1KMdLnGjdw6p7OLDiOixlK3lfs7UqjquAEGAc=' 'sha256-3yvZ1rWaaMxuqj48CCnBYQnnqIrGqWwU1EJRSKIU6UI=' 'sha256-nTV83zTipf518xwxxqCM6u7Hg8frcLoSTTDWaUiCJe8='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.web3forms.com https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-9P3DKMOrcYnQFTrIA3lYK660/J1upr8DRqbUyzN54mE=' 'sha256-nlR2/8drInnHVeayFQts7F0TJn5KjVyXAvOPG/c+zJI='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.web3forms.com https://cloudflareinsights.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com
 
   # ── Cross-Origin policies ─────────────────────────────────
   Cross-Origin-Opener-Policy: same-origin
