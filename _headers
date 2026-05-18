@@ -43,7 +43,7 @@
   # frame-ancestors 'none'      — belt-and-suspenders vs clickjacking
   # base-uri    'self'          — prevent base tag injection
   # form-action 'self'          — prevent form hijacking
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-9P3DKMOrcYnQFTrIA3lYK660/J1upr8DRqbUyzN54mE=' 'sha256-nlR2/8drInnHVeayFQts7F0TJn5KjVyXAvOPG/c+zJI='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.web3forms.com https://cloudflareinsights.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-MDoFK+0/2M87+yVzsbrnrvmUbHnk3/B9AvS3dlp+cZw=' 'sha256-nlR2/8drInnHVeayFQts7F0TJn5KjVyXAvOPG/c+zJI='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.web3forms.com https://cloudflareinsights.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com
 
   # ── Cross-Origin policies ─────────────────────────────────
   Cross-Origin-Opener-Policy: same-origin
