@@ -141,20 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   // Books page — print edition interest
-  const podBtn = document.getElementById('notifyPODBtn');
-  if (podBtn) {
-    podBtn.addEventListener('click', () =>
-      handleNotifySubmit('notifyEmailPOD', podBtn, SUBSCRIBE_URL)
-    );
-  }
+  wireNotifyForm('notifyPODForm', 'notifyEmailPOD', 'notifyPODBtn', 'notifyPODStatus');
 
   // Books page — volume notifications footer form
-  const footerBtn = document.getElementById('notifyFooterBtn');
-  if (footerBtn) {
-    footerBtn.addEventListener('click', () =>
-      handleNotifySubmit('notifyEmailFooter', footerBtn, SUBSCRIBE_URL)
-    );
-  }
+  wireNotifyForm('notifyFooterForm', 'notifyEmailFooter', 'notifyFooterBtn', 'notifyFooterStatus');
 });
 
 /* ============================================================
@@ -236,15 +226,44 @@ function handleContact(event) {
    SUBSCRIPTIONS
    ============================================================ */
 
-function handleNotifySubmit(inputId, btnEl, url) {
+function wireNotifyForm(formId, inputId, btnId, statusId) {
+  const form = document.getElementById(formId);
+  const input = document.getElementById(inputId);
+  const btn = document.getElementById(btnId);
+
+  form?.addEventListener('submit', event =>
+    handleNotifySubmit(event, inputId, btn, statusId, SUBSCRIBE_URL)
+  );
+
+  input?.addEventListener('input', () => {
+    if (input.checkValidity()) {
+      input.removeAttribute('aria-invalid');
+    }
+  });
+}
+
+function handleNotifySubmit(event, inputId, btnEl, statusId, url) {
+  event?.preventDefault();
+
   const input = document.getElementById(inputId);
   const email = input?.value?.trim();
 
-  if (!email || !email.includes('@')) { input?.focus(); return; }
-  if (isRateLimited('subscribe_' + inputId, 10000)) return;
+  input?.removeAttribute('aria-invalid');
+  setNotifyStatus(statusId, '');
+
+  if (!email || !input?.checkValidity()) {
+    const message = 'Please enter a valid email address.';
+    input?.setAttribute('aria-invalid', 'true');
+    setNotifyStatus(statusId, message);
+    input?.focus();
+    return;
+  }
+
+  if (isNotifyRateLimited('subscribe_' + inputId, statusId, 10000)) return;
 
   const orig = btnEl?.textContent || 'Notify Me';
   setBtn(btnEl, 'Adding you…', false);
+  setNotifyStatus(statusId, 'Adding you…');
 
   fetch(url, {
     method: 'POST',
@@ -258,13 +277,15 @@ function handleNotifySubmit(inputId, btnEl, url) {
     .then(data => {
       if (!(data.success || data.ok)) throw new Error(data.error || 'Failed');
       setBtn(btnEl, 'Subscribed ✓', false, '#0d4a47', 'var(--gold-pale)');
+      setNotifyStatus(statusId, 'Subscribed ✓');
       if (input) input.value = '';
+      input?.removeAttribute('aria-invalid');
       setTimeout(() => setBtn(btnEl, orig, true), 3500);
     })
     .catch(err => {
       console.error('Subscription:', err);
       setBtn(btnEl, orig, true);
-      showError('Could not subscribe. Email contact@usullearning.com to be added.', inputId);
+      setNotifyStatus(statusId, 'Could not subscribe. Email contact@usullearning.com to be added.');
     });
 }
 
@@ -306,6 +327,15 @@ function showContactFailure(msg) {
   showError(msg);
 }
 
+function setNotifyStatus(statusId, msg) {
+  const status = document.getElementById(statusId);
+  if (!status) return;
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  status.hidden = !msg;
+  status.textContent = msg;
+}
+
 function isContactRateLimited() {
   const now = Date.now();
   if (_rateLimits.contact && now - _rateLimits.contact < 30000) {
@@ -315,6 +345,17 @@ function isContactRateLimited() {
     return true;
   }
   _rateLimits.contact = now;
+  return false;
+}
+
+function isNotifyRateLimited(key, statusId, limitMs = 30000) {
+  const now = Date.now();
+  if (_rateLimits[key] && now - _rateLimits[key] < limitMs) {
+    const remaining = Math.ceil((limitMs - (now - _rateLimits[key])) / 1000);
+    setNotifyStatus(statusId, `Please wait ${remaining} seconds before trying again.`);
+    return true;
+  }
+  _rateLimits[key] = now;
   return false;
 }
 
