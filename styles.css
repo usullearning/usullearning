@@ -722,10 +722,24 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
   .book-3d,
   .book-card__3d,
   .book-card__status-dot,
   .read-section__notice-dot,
+  .print-section__badge-dot,
   [class*="animate"],
   .fade-up {
     animation: none !important;
