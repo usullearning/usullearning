@@ -379,10 +379,10 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 .footer__bottom-meta { font-size: 0.78rem; color: rgba(247,242,233,0.68); letter-spacing: 0.02em; }
 .footer__bottom-attr { font-size: 0.78rem; color: rgba(247,242,233,0.68); }
 .footer__bottom-links { display: flex; align-items: center; gap: 10px; }
-.footer__bottom-link { font-size: 0.78rem; color: rgba(200,146,42,0.65); transition: color var(--transition); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(200,146,42,0.3); }
+.footer__bottom-link { font-size: 0.78rem; color: var(--gold); transition: color var(--transition); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(200,146,42,0.3); }
 .footer__bottom-link:hover, .footer__bottom-link:focus-visible { color: var(--gold); text-decoration-color: var(--gold); }
 .footer__bottom-sep { color: rgba(247,242,233,0.25); font-size: 0.7rem; }
-.footer__bottom-attr-link { font-size: 0.78rem; color: rgba(200,146,42,0.72); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(200,146,42,0.25); transition: color var(--transition); }
+.footer__bottom-attr-link { font-size: 0.78rem; color: var(--gold); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(200,146,42,0.25); transition: color var(--transition); }
 .footer__bottom-attr-link:hover, .footer__bottom-attr-link:focus-visible { color: var(--gold); text-decoration-color: var(--gold); }
 .footer__bottom-disclaimer { font-size: 0.74rem; color: rgba(247,242,233,0.55); font-style: italic; text-align: center; padding-top: 4px; border-top: 1px solid rgba(200,146,42,0.06); }
 
