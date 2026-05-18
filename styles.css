@@ -12,6 +12,7 @@
   --ink:          #111a19;
   --ink-soft:     #1e2f2e;
   --gold:         #c8922a;
+  --gold-on-light: #7f5818;
   --gold-light:   #d4a040;
   --gold-pale:    #f0e2bc;
   --emerald:      #0b3f3d;
@@ -55,6 +56,11 @@ select:focus-visible {
   outline-offset: 3px;
 }
 
+:where(.about, .method, .meth-principles, .meth-quote-section, .about-intro, .about-reg, .author-note-section, .books-intro, .book-detail, .contact, .sources-intro, .legal-section, .support-upi, .ty-section) :focus-visible,
+:where(.source-pill, .ty-card):focus-visible {
+  outline-color: var(--gold-on-light);
+}
+
 /* ── Issue 4: Safe-area insets for notches, Dynamic Island, foldable hinges ── */
 /* Nav: extend into safe area at top */
 .nav {
@@ -90,7 +96,7 @@ p  { font-size: clamp(0.9rem, 3vw, 1.05rem); line-height: 1.85; color: var(--tex
 .section--sm { padding: 28px 0; }
 
 /* Eyebrow */
-.eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-on-light); margin-bottom: 16px; }
 .eyebrow::before { content: ''; display: block; width: 22px; height: 1px; background: var(--gold); flex-shrink: 0; }
 
 /* Ornament */
@@ -185,6 +191,7 @@ p  { font-size: clamp(0.9rem, 3vw, 1.05rem); line-height: 1.85; color: var(--tex
 /* ── BUTTONS ────────────────────────────────────────────────── */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; min-height: 44px; font-family: var(--font-body); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border-radius: var(--radius); transition: all var(--transition); cursor: pointer; border: none; white-space: nowrap; }
 .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+:where(.about, .method, .meth-principles, .meth-quote-section, .about-intro, .about-reg, .author-note-section, .books-intro, .book-detail, .contact, .sources-intro, .legal-section, .support-upi, .ty-section) .btn:focus-visible { outline-color: var(--gold-on-light); }
 .btn--primary { background: var(--emerald-mid); color: var(--gold-pale); border: 1px solid transparent; }
 .btn--primary:hover { background: var(--emerald-soft); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(13,74,71,0.35); }
 .btn--outline { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
@@ -196,7 +203,7 @@ p  { font-size: clamp(0.9rem, 3vw, 1.05rem); line-height: 1.85; color: var(--tex
 
 /* ── SECTION HEADERS ────────────────────────────────────────── */
 .section-header { text-align: center; margin-bottom: 32px; }
-.section-header__eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.section-header__eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-on-light); margin-bottom: 14px; }
 .section-header__eyebrow::before, .section-header__eyebrow::after { content: ''; display: block; width: 18px; height: 1px; background: rgba(200,146,42,0.6); }
 /* Sources page H2 headings — semantic heading, eyebrow visual style */
 h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; line-height: 1; }
@@ -215,7 +222,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 .about__author-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
 .about__author-avatar svg { width: 20px; height: 20px; color: var(--gold-pale); }
 .about__author-name { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--ink); }
-.about__author-role { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-top: 2px; }
+.about__author-role { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-on-light); margin-top: 2px; }
 .about__visual { position: relative; display: flex; justify-content: center; }
 .about__card-stack { position: relative; width: 100%; max-width: 340px; }
 .about__card { background: white; border-radius: var(--radius-md); padding: 24px; box-shadow: 0 8px 40px rgba(8,15,15,0.12); border: 1px solid rgba(200,146,42,0.07); }
@@ -310,7 +317,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 .support { background: var(--cream-dark); position: relative; overflow: hidden; }
 .support::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
 .support__inner { display: grid; grid-template-columns: 1fr; gap: 36px; align-items: center; }
-.support__eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.support__eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-on-light); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
 .support__eyebrow::before { content: ''; display: block; width: 22px; height: 1px; background: var(--gold); }
 .support__title { font-family: var(--font-display); font-size: clamp(1.6rem, 6vw, 2.8rem); color: var(--ink); margin-bottom: 16px; font-weight: 400; line-height: 1.15; }
 .support__desc { font-size: clamp(0.875rem, 3vw, 1rem); line-height: 1.85; color: var(--text-muted); font-weight: 400; margin-bottom: 24px; }
@@ -336,6 +343,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 .notify-section { background: var(--dark-surface); border-top: 1px solid rgba(200,146,42,0.1); border-bottom: 1px solid rgba(200,146,42,0.1); padding: 40px 0; }
 .notify-section__inner { display: flex; flex-direction: column; gap: 20px; }
 .notify-section__text { flex: 1; }
+.notify-section .eyebrow { color: var(--gold); }
 .notify-section__title { font-family: var(--font-display); font-size: clamp(1.4rem, 5vw, 2.2rem); color: var(--gold-pale); font-weight: 300; margin-bottom: 8px; line-height: 1.25; }
 .notify-section__desc { font-size: 0.875rem; color: rgba(247,242,233,0.82); font-weight: 400; line-height: 1.7; margin: 0; }
 .notify-section__form { display: flex; flex-direction: column; gap: 10px; width: 100%; }
@@ -403,8 +411,8 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 .form-group { margin-bottom: 18px; }
 .form-label { display: block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 7px; }
 .form-input, .form-textarea { width: 100%; padding: 12px 14px; background: var(--cream); border: 1px solid var(--border-soft); border-radius: var(--radius); font-family: var(--font-body); color: var(--ink); transition: border-color var(--transition), background var(--transition); outline: none; resize: none; }
-.form-input:focus, .form-textarea:focus { border-color: var(--gold); background: white; }
-.form-input:focus-visible, .form-textarea:focus-visible { box-shadow: 0 0 0 3px rgba(200,146,42,0.2); }
+.form-input:focus, .form-textarea:focus { border-color: var(--gold-on-light); background: white; }
+.form-input:focus-visible, .form-textarea:focus-visible { box-shadow: 0 0 0 3px rgba(127,88,24,0.28); }
 .form-textarea { min-height: 120px; }
 
 /* ── SOURCES ────────────────────────────────────────────────── */
@@ -423,7 +431,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 .source-pill { padding: 14px 18px; background: white; border: 1px solid var(--border-soft); border-radius: var(--radius); text-align: center; transition: all var(--transition); }
 .source-pill:hover { border-color: var(--border); box-shadow: 0 4px 18px rgba(8,15,15,0.08); transform: translateY(-2px); }
 .source-pill__name { font-family: var(--font-display); font-size: clamp(0.95rem, 3.5vw, 1.05rem); color: var(--ink); margin-bottom: 4px; font-weight: 400; }
-.source-pill__type { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+.source-pill__type { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-on-light); }
 
 /* ── LEGAL PAGES ────────────────────────────────────────────── */
 .legal-content h3 { font-family: var(--font-display); font-size: clamp(1.1rem, 4vw, 1.45rem); color: var(--ink); margin: 32px 0 12px; font-weight: 500; }
@@ -675,6 +683,8 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
   .btn { min-height: 60px; padding: 14px 36px; font-size: 0.82rem; }
   .nav__link { min-height: 60px; }
   :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+  :where(.about, .method, .meth-principles, .meth-quote-section, .about-intro, .about-reg, .author-note-section, .books-intro, .book-detail, .contact, .sources-intro, .legal-section, .support-upi, .ty-section) :focus-visible,
+  :where(.source-pill, .ty-card):focus-visible { outline-color: var(--gold-on-light); }
 }
 
 /* ── 2560px — QHD, iMac, ultrawide ─────────────────────────── */
@@ -969,7 +979,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 }
 .author-role-label {
   font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--gold); display: block;
+  text-transform: uppercase; color: var(--gold-on-light); display: block;
   margin-bottom: 14px;
 }
 .author-orcid {
@@ -1046,7 +1056,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 }
 .books-intro__audience-label {
   font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--gold);
+  text-transform: uppercase; color: var(--gold-on-light);
 }
 .books-intro__audience-list {
   display: flex; flex-direction: column; gap: 6px;
@@ -1099,7 +1109,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 /* Books page — alt volume: cream background + separator */
 .book-detail--alt { background: var(--cream); border-top: 1px solid var(--border-soft); }
 .book-detail__vol2-badge {
-  border-color: rgba(200,146,42,0.3); color: rgba(200,146,42,0.88);
+  border-color: rgba(200,146,42,0.3); color: var(--gold-on-light);
 }
 .book-detail__vol2-dot { background: var(--gold-light); }
 
@@ -1153,7 +1163,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 }
 .contact-note__label {
   font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+  text-transform: uppercase; color: var(--gold-on-light); margin-bottom: 6px;
 }
 .contact-note__text {
   font-size: 0.9rem; color: var(--text-muted); font-weight: 400;
@@ -1172,7 +1182,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
   font-size: 0.78rem; color: var(--text-muted);
   text-align: center; margin-top: 14px; font-weight: 400;
 }
-.contact-form__privacy-link { color: var(--gold); }
+.contact-form__privacy-link { color: var(--gold-on-light); }
 .input--hidden { display: none; }
 
 /* ── index.html ──────────────────────────────────────────────── */
@@ -1211,7 +1221,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 }
 .meth-quote-box__cite {
   font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--gold); font-style: normal;
+  text-transform: uppercase; color: var(--gold-on-light); font-style: normal;
   display: block;
 }
 
@@ -1348,7 +1358,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 .author-note-sig__arabic {
   font-family: var(--font-arabic);
   font-size: 1.1rem;
-  color: var(--gold);
+  color: var(--gold-on-light);
   direction: rtl;
   margin-bottom: 4px;
 }
