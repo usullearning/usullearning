@@ -434,7 +434,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 .source-pill__type { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-on-light); }
 
 /* ── LEGAL PAGES ────────────────────────────────────────────── */
-.legal-content h3 { font-family: var(--font-display); font-size: clamp(1.1rem, 4vw, 1.45rem); color: var(--ink); margin: 32px 0 12px; font-weight: 500; }
+.legal-content h2, .legal-content h3 { font-family: var(--font-display); font-size: clamp(1.1rem, 4vw, 1.45rem); color: var(--ink); margin: 32px 0 12px; font-weight: 500; }
 .legal-content p { font-size: clamp(0.875rem, 3vw, 1rem); line-height: 1.9; color: var(--text-body); font-weight: 400; margin-bottom: 14px; }
 .legal-content ul { padding-left: 20px; margin-bottom: 14px; }
 .legal-content ul li { font-size: clamp(0.875rem, 3vw, 1rem); line-height: 1.9; color: var(--text-body); font-weight: 400; margin-bottom: 6px; list-style: disc; }
@@ -859,7 +859,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
   .book-card { break-inside: avoid; border: 1px solid #ccc; }
   .page-hero { background: #fff; padding: 24pt 0 16pt; }
   .page-hero__title, .page-hero__desc { color: #000; }
-  .legal-content h3, .legal-content p, .legal-content li { color: #000; }
+  .legal-content h2, .legal-content h3, .legal-content p, .legal-content li { color: #000; }
 }
 
 /* ── Issue 7: CSS-native hover guard (hover:hover) + JS .no-hover fallback ── */
