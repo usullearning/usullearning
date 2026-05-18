@@ -54,6 +54,11 @@ async function handleSubscribe(request, env, origin, allowed) {
   }
   const listId = parseInt(env.BREVO_LIST_ID, 10);
 
+  if (!env.BREVO_KEY) {
+    console.error('Subscribe Worker configuration error: missing Brevo API key');
+    return corsResponse(JSON.stringify({ error: 'Server configuration error' }), 500, origin, allowed);
+  }
+
   const upstream = await fetch('https://api.brevo.com/v3/contacts', {
     method: 'POST',
     headers: {
