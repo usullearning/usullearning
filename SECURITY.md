@@ -187,8 +187,8 @@ This site deliberately has no unnecessary complexity. The following are architec
 | Content | Privacy policy sections renumbered sequentially |
 | Content | CCPA references removed — not applicable jurisdiction |
 | Support page | Bank transfer details removed |
-| Support page | Payment section redesigned and corrected |
-| Support page | Public, indexable, and present in sitemap |
+| Support page | Payment QR valid and approved |
+| Support page | Public voluntary support page, indexable, and present in sitemap |
 | Infrastructure | www → apex redirect created in Cloudflare |
 | Infrastructure | Cloudflare Web Analytics enabled |
 | Infrastructure | Legacy Google Sites unpublished |

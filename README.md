@@ -224,8 +224,8 @@ wrangler deploy --config wrangler.worker.toml
 | Methodology | `/methodology.html` | ✅ | ✅ | Priority 0.8 |
 | Sources | `/sources.html` | ✅ | ✅ | Priority 0.7 |
 | About | `/about.html` | ✅ | ✅ | Priority 0.7 |
-| Contact | `/contact.html` | ✅ | ✅ | Priority 0.6 |
-| Support | `/support.html` | ✅ | ✅ | Public page for official support, corrections, feedback, and voluntary support |
+| Contact | `/contact.html` | ✅ | ✅ | Official page for feedback, corrections, scholarly observations, and general contact |
+| Support | `/support.html` | ✅ | ✅ | Public indexed page for voluntary financial support only; payment QR is valid and approved |
 | Privacy Policy | `/privacy.html` | ❌ noindex | ❌ | Legal; may remain excluded if intended |
 | Terms of Use | `/terms.html` | ❌ noindex | ❌ | Legal; may remain excluded if intended |
 | Support Policy | `/support-policy.html` | ❌ noindex | ❌ | Legal; may remain excluded if intended |
@@ -263,7 +263,7 @@ wrangler deploy --config wrangler.worker.toml
 | OG image dimensions — Facebook preview fix | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
 | Notify Me UX — books page | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
 | Book schema — JSON-LD structured data | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
-| Support page — payment section redesigned | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
+| Support page — payment QR valid and approved | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
 | Privacy policy — DPDP Act 2023 compliant | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
 | Privacy policy — sections sequentially renumbered | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
 | Legal pages — noindex tags applied | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
