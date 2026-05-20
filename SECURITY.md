@@ -173,9 +173,9 @@ This site deliberately has no unnecessary complexity. The following are architec
 | CSP | Web3Forms API added to `connect-src` and `form-action` |
 | CSP | Cloudflare Analytics beacon added to `script-src` and `connect-src` |
 | SEO | Nav links standardised to `href="/"` across all pages |
-| SEO | `noindex` applied to legal, support, and utility pages |
-| SEO | Sitemap cleaned — content pages only |
-| SEO | `robots.txt` updated — non-indexable paths disallowed |
+| SEO | `noindex` applied to legal and utility pages where intended |
+| SEO | Sitemap includes public pages, including `/support` |
+| SEO | `robots.txt` keeps `/support` crawlable |
 | SEO | Meta descriptions updated across all pages |
 | SEO | OG image dimensions declared — resolves Facebook preview |
 | SEO | JSON-LD Book schema added |
@@ -188,7 +188,7 @@ This site deliberately has no unnecessary complexity. The following are architec
 | Content | CCPA references removed — not applicable jurisdiction |
 | Support page | Bank transfer details removed |
 | Support page | Payment section redesigned and corrected |
-| Support page | Excluded from search indexing and sitemap |
+| Support page | Public, indexable, and present in sitemap |
 | Infrastructure | www → apex redirect created in Cloudflare |
 | Infrastructure | Cloudflare Web Analytics enabled |
 | Infrastructure | Legacy Google Sites unpublished |

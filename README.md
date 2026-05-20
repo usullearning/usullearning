@@ -33,7 +33,7 @@
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Sora&weight=500&size=12&duration=1800&pause=0&color=6B7280&center=true&vCenter=true&repeat=true&width=700&lines=Quran+%C2%B7+Sunnah+%C2%B7+Shafi%27i+Madhhab+%C2%B7+Volume-Based+Learning+%C2%B7+Authentic+Scholarship" />
+  <img src="https://readme-typing-svg.demolab.com?font=Sora&weight=500&size=12&duration=1800&pause=0&color=6B7280&center=true&vCenter=true&repeat=true&width=700&lines=Quran+%C2%B7+Hadith+%C2%B7+Shafi%27i+Madhhab+%C2%B7+Volume-Based+Learning+%C2%B7+Referenced+Materials" />
 </p>
 
 <br/>
@@ -42,7 +42,7 @@
 
 ## Quick Snapshot
 
-Usul Learning is a structured Islamic publishing platform built on modern Cloudflare infrastructure. It publishes authentic long-form educational works grounded in the Qur'an, Sunnah, and Shafi'i scholarly tradition — delivered as a static, fast, privacy-respecting website with no framework dependencies. All content is free. All infrastructure is production-grade.
+Usul Learning is a structured Islamic publishing platform built on modern Cloudflare infrastructure. It publishes referenced long-form educational works prepared with the Qur'an, hadith literature, and Shafi'i scholarly tradition — delivered as a static, fast, privacy-respecting website with no framework dependencies. All content is free. All infrastructure is production-grade.
 
 ---
 
@@ -61,7 +61,7 @@ Usul Learning is a structured Islamic publishing platform built on modern Cloudf
 
 **Usul Learning** was founded on a single conviction: that the Islamic intellectual tradition deserves a publishing architecture worthy of its depth.
 
-The platform transforms fragmented, inaccessible scholarship into **structured, volume-based knowledge** — grounded in the Quran and authentic Sunnah, articulated through the Shafi'i school.
+The platform presents **structured, volume-based learning materials** with references from the Quran, hadith literature, and the Shafi'i school.
 
 This is not a content feed. It is a **long-form knowledge system**, built volume by volume, for serious students of the tradition.
 
@@ -96,7 +96,7 @@ This is not a content feed. It is a **long-form knowledge system**, built volume
 > Knowledge without form cannot be transferred. Every concept is organized before it is published.
 
 > ![](https://img.shields.io/badge/II-Sources%20Before%20Statements-ffffff?style=flat-square&labelColor=FF6B1A&color=1A1F3A)
-> All content traces directly to the Quran, authenticated Sunnah, or established scholarly positions.
+> Content is prepared with references from the Quran, hadith literature, or established scholarly positions.
 
 > ![](https://img.shields.io/badge/III-Clarity%20Without%20Compromise-ffffff?style=flat-square&labelColor=FF6B1A&color=1A1F3A)
 > The complexity of the tradition is preserved. The accessibility of language is non-negotiable.
@@ -197,7 +197,7 @@ wrangler deploy --config wrangler.worker.toml
 | **OG image** | `assets/og-preview.jpg` — 1200×630px, declared with explicit dimensions on all pages |
 | **Book schema** | JSON-LD structured data on `books.html` for both volumes |
 | **Heading hierarchy** | H1 → H2 → H3 enforced across all pages; visually-hidden H2 bridge on methodology page |
-| **robots.txt** | Disallows `/api/`, all legal pages, support page, and thank-you page |
+| **robots.txt** | Disallows `/api/`; `/support` remains public and indexable |
 | **Search Console** | Verified — all six content pages indexed, sitemap submitted |
 | **Analytics** | Cloudflare Web Analytics — edge-injected, cookie-free, DPDP Act 2023 compliant |
 
@@ -225,11 +225,11 @@ wrangler deploy --config wrangler.worker.toml
 | Sources | `/sources.html` | ✅ | ✅ | Priority 0.7 |
 | About | `/about.html` | ✅ | ✅ | Priority 0.7 |
 | Contact | `/contact.html` | ✅ | ✅ | Priority 0.6 |
-| Support | `/support.html` | ❌ noindex | ❌ | Voluntary contribution — excluded from search |
-| Privacy Policy | `/privacy.html` | ❌ noindex | ❌ | Legal |
-| Terms of Use | `/terms.html` | ❌ noindex | ❌ | Legal |
-| Support Policy | `/support-policy.html` | ❌ noindex | ❌ | Legal |
-| Thank You | `/thank-you.html` | ❌ noindex | ❌ | Post-submission redirect |
+| Support | `/support.html` | ✅ | ✅ | Public page for official support, corrections, feedback, and voluntary support |
+| Privacy Policy | `/privacy.html` | ❌ noindex | ❌ | Legal; may remain excluded if intended |
+| Terms of Use | `/terms.html` | ❌ noindex | ❌ | Legal; may remain excluded if intended |
+| Support Policy | `/support-policy.html` | ❌ noindex | ❌ | Legal; may remain excluded if intended |
+| Thank You | `/thank-you.html` | ❌ noindex | ❌ | Post-submission redirect; may remain excluded if intended |
 
 </div>
 
@@ -267,8 +267,8 @@ wrangler deploy --config wrangler.worker.toml
 | Privacy policy — DPDP Act 2023 compliant | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
 | Privacy policy — sections sequentially renumbered | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
 | Legal pages — noindex tags applied | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
-| sitemap.xml — content pages only | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
-| robots.txt — non-indexable paths disallowed | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
+| sitemap.xml — public pages including `/support` | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
+| robots.txt — `/api/` disallowed; `/support` allowed | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
 | thank-you.html — post-contact redirect page | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
 | Contact form — thank-you redirect on success | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
 | Heading hierarchy — all pages audited | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
@@ -276,7 +276,7 @@ wrangler deploy --config wrangler.worker.toml
 | Cloudflare Web Analytics — enabled | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
 | Legacy Google Sites — unpublished | ![](https://img.shields.io/badge/Complete-22c55e?style=flat-square&labelColor=f0fdf4&color=22c55e) |
 | Volume I — Writing & structuring | ![](https://img.shields.io/badge/Active-FF6B1A?style=flat-square&labelColor=FFF3EC&color=FF6B1A) |
-| Volume I — Final publication | ![](https://img.shields.io/badge/In%20Pipeline-6366f1?style=flat-square&labelColor=eef2ff&color=6366f1) |
+| Volume I — Review Edition v1.0 | ![](https://img.shields.io/badge/In%20Pipeline-6366f1?style=flat-square&labelColor=eef2ff&color=6366f1) |
 | Volume II — Research & planning | ![](https://img.shields.io/badge/Scheduled-6366f1?style=flat-square&labelColor=eef2ff&color=6366f1) |
 
 </div>
