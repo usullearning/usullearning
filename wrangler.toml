@@ -1,0 +1,5 @@
+# Cloudflare Pages deploys only this staged static output directory.
+# Build command: bash scripts/build-pages.sh
+name = "usullearning"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-05-21"

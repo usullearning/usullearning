@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+output_dir="dist"
+
+public_files=(
+  "_headers"
+  "about.html"
+  "android-chrome-192x192.png"
+  "android-chrome-512x512.png"
+  "apple-touch-icon.png"
+  "books.html"
+  "contact.html"
+  "favicon-16x16.png"
+  "favicon-32x32.png"
+  "favicon-48x48.png"
+  "favicon-96x96.png"
+  "favicon.ico"
+  "google01648345559ef45d.html"
+  "index.html"
+  "main.js"
+  "methodology.html"
+  "privacy.html"
+  "robots.txt"
+  "site.webmanifest"
+  "sitemap.xml"
+  "sources.html"
+  "styles.css"
+  "support-policy.html"
+  "support.html"
+  "terms.html"
+  "thank-you.html"
+)
+
+public_dirs=(
+  "assets"
+)
+
+rm -rf "$output_dir"
+mkdir -p "$output_dir"
+
+for file in "${public_files[@]}"; do
+  install -m 0644 "$file" "$output_dir/$file"
+done
+
+for dir in "${public_dirs[@]}"; do
+  mkdir -p "$output_dir/$dir"
+  cp -R "$dir"/. "$output_dir/$dir/"
+done
+
+blocked_paths="$(
+  find "$output_dir" \
+    \( \
+      -name ".git" -o \
+      -name ".github" -o \
+      -name ".env" -o \
+      -name ".env.*" -o \
+      -name "README.md" -o \
+      -name "SECURITY.md" -o \
+      -name "CONTENT-LICENSE.md" -o \
+      -name "LICENSE" -o \
+      -name "NOTICE" -o \
+      -name "package.json" -o \
+      -name "package-lock.json" -o \
+      -name "pnpm-lock.yaml" -o \
+      -name "yarn.lock" -o \
+      -name "wrangler*.toml" -o \
+      -name "worker.js" -o \
+      -name "docs" \
+    \) -print
+)"
+
+if [[ -n "$blocked_paths" ]]; then
+  printf 'Blocked non-public deployment files in %s:\n%s\n' "$output_dir" "$blocked_paths" >&2
+  exit 1
+fi
