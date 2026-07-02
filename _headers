@@ -88,9 +88,3 @@
 
 /assets/*
   Cache-Control: public, max-age=604800, must-revalidate
-
-/assets/*.jpg
-  Content-Type: image/jpeg
-
-/assets/*.jpeg
-  Content-Type: image/jpeg
