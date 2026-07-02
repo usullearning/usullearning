@@ -69,6 +69,7 @@
 
 /llms.txt
   Cache-Control: public, max-age=3600, must-revalidate
+  Content-Type: text/plain; charset=utf-8
 
 /site.webmanifest
   Cache-Control: public, max-age=86400, must-revalidate
@@ -87,3 +88,21 @@
 
 /assets/*
   Cache-Control: public, max-age=604800, must-revalidate
+
+/assets/*.jpg
+  Content-Type: image/jpeg
+
+/assets/*.jpeg
+  Content-Type: image/jpeg
+
+/assets/books/*.jpg
+  Content-Type: image/jpeg
+
+/assets/books/*.jpeg
+  Content-Type: image/jpeg
+
+/assets/images/*.jpg
+  Content-Type: image/jpeg
+
+/assets/images/*.jpeg
+  Content-Type: image/jpeg
