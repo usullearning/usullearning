@@ -1,0 +1,12 @@
+# Usul Learning
+
+Usul Learning is an independent Islamic learning website focused on free, structured materials for learning Shafi'i worship step by step.
+
+Useful links:
+
+- Home: https://usullearning.com/
+- Books: https://usullearning.com/books
+- Methodology: https://usullearning.com/methodology
+- Sources: https://usullearning.com/sources
+- About: https://usullearning.com/about
+- Contact: https://usullearning.com/contact

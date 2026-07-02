@@ -20,6 +20,7 @@ public_files=(
   "favicon.ico"
   "google01648345559ef45d.html"
   "index.html"
+  "llms.txt"
   "main.js"
   "methodology.html"
   "privacy.html"
