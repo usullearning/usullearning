@@ -5,6 +5,8 @@ output_dir="dist"
 
 public_files=(
   "_headers"
+  "_redirects"
+  "404.html"
   "about.html"
   "android-chrome-192x192.png"
   "android-chrome-512x512.png"

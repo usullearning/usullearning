@@ -6,7 +6,7 @@
 // Contact goes directly to Web3Forms from the browser (free plan, no server-side proxy needed).
 // Web3Forms access keys are explicitly safe to expose in client-side code.
 const CONTACT_URL = 'https://api.web3forms.com/submit';
-const WEB3FORMS_KEY = '2e08d270-7507-4f31-a552-3aa165969329'; // replace with your actual key
+const WEB3FORMS_KEY = '2e08d270-7507-4f31-a552-3aa165969329';
 const SUBSCRIBE_URL = '/api/subscribe';
 
 /* ── DEVICE CAPABILITY DETECTION ───────────────────────────── */
