@@ -143,8 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Books page — print edition interest
   wireNotifyForm('notifyPODForm', 'notifyEmailPOD', 'notifyPODBtn', 'notifyPODStatus');
 
-  // Books page — volume notifications footer form
-  wireNotifyForm('notifyFooterForm', 'notifyEmailFooter', 'notifyFooterBtn', 'notifyFooterStatus');
 });
 
 /* ============================================================
