@@ -194,7 +194,9 @@ p  { font-size: clamp(0.9rem, 3vw, 1.05rem); line-height: 1.85; color: var(--tex
 :where(.about, .method, .meth-principles, .meth-quote-section, .about-intro, .about-reg, .author-note-section, .books-intro, .book-detail, .contact, .sources-intro, .legal-section, .support-upi, .ty-section) .btn:focus-visible { outline-color: var(--gold-on-light); }
 .btn--primary { background: var(--emerald-mid); color: var(--gold-pale); border: 1px solid transparent; }
 .btn--primary:hover { background: var(--emerald-soft); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(13,74,71,0.35); }
-.btn--outline { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
+/* Outline button always sits on light/cream backgrounds (.method, .ty-card);
+   use the darker gold token for WCAG-AA text contrast. Border left as gold accent. */
+.btn--outline { background: transparent; border: 1px solid var(--gold); color: var(--gold-on-light); }
 .btn--outline:hover { background: var(--gold); color: var(--dark); transform: translateY(-1px); }
 .btn--gold { background: var(--gold); color: var(--dark); font-weight: 600; }
 .btn--gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(200,146,42,0.35); }

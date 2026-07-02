@@ -51,6 +51,21 @@ for dir in "${public_dirs[@]}"; do
   cp -R "$dir"/. "$output_dir/$dir/"
 done
 
+# Large source-original PNGs are kept in the repo (source of truth for the
+# JPG/SVG variants that are actually referenced) but are NOT referenced by any
+# HTML/CSS/JS. Prune them from the deployed output so ~4 MB of unused originals
+# are never shipped or served publicly. rm -f is safe if a file is already gone.
+unused_assets=(
+  "assets/books/essentials-shafii-worship-vol1.png"
+  "assets/books/essentials-shafii-worship-vol2.png"
+  "assets/images/author-photo.png"
+  "assets/logo/usullearning-logo.png"
+)
+
+for asset in "${unused_assets[@]}"; do
+  rm -f "$output_dir/$asset"
+done
+
 blocked_paths="$(
   find "$output_dir" \
     \( \
