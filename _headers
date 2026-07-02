@@ -94,15 +94,3 @@
 
 /assets/*.jpeg
   Content-Type: image/jpeg
-
-/assets/books/*.jpg
-  Content-Type: image/jpeg
-
-/assets/books/*.jpeg
-  Content-Type: image/jpeg
-
-/assets/images/*.jpg
-  Content-Type: image/jpeg
-
-/assets/images/*.jpeg
-  Content-Type: image/jpeg
