@@ -2,6 +2,12 @@
 
 export default {
   async fetch(request, env) {
+    const url = new URL(request.url);
+
+    if (url.pathname === '/download/volume-1') {
+      return handleVolumeOneDownload(request, env);
+    }
+
     const origin = request.headers.get('Origin') || '';
     const allowed = env.ALLOWED_ORIGIN || 'https://usullearning.com';
 
@@ -24,8 +30,6 @@ export default {
       return corsResponse(JSON.stringify({ error: 'Forbidden' }), 403, effectiveOrigin, effectiveAllowed);
     }
 
-    const url = new URL(request.url);
-
     if (url.pathname === '/api/subscribe') {
       return handleSubscribe(request, env, effectiveOrigin, effectiveAllowed);
     }
@@ -33,6 +37,44 @@ export default {
     return corsResponse(JSON.stringify({ error: 'Not found' }), 404, effectiveOrigin, effectiveAllowed);
   },
 };
+
+async function handleVolumeOneDownload(request, env) {
+  if (request.method !== 'GET' && request.method !== 'HEAD') {
+    return new Response('Method not allowed', {
+      status: 405,
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        Allow: 'GET, HEAD',
+        'X-Content-Type-Options': 'nosniff',
+      },
+    });
+  }
+
+  const object = await env.BOOKS_BUCKET.get('essentials-shafii-worship-volume-1-review-edition.pdf');
+
+  if (!object) {
+    return new Response('Not found', {
+      status: 404,
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'X-Content-Type-Options': 'nosniff',
+      },
+    });
+  }
+
+  const headers = new Headers({
+    'Content-Type': 'application/pdf',
+    'Content-Disposition': 'attachment; filename="essentials-shafii-worship-volume-1-review-edition.pdf"',
+    'Cache-Control': 'public, max-age=86400',
+    'X-Content-Type-Options': 'nosniff',
+  });
+
+  if (object.httpEtag) {
+    headers.set('ETag', object.httpEtag);
+  }
+
+  return new Response(request.method === 'HEAD' ? null : object.body, { headers });
+}
 
 async function handleSubscribe(request, env, origin, allowed) {
   let body;
