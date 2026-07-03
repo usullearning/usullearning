@@ -545,6 +545,12 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
   .footer__brand-desc { max-width: 340px; }
   .author-section-grid { grid-template-columns: 1fr 2fr; gap: 56px; }
   .book-detail__grid { grid-template-columns: 1fr 1fr; gap: 56px; }
+  .book-detail__grid--volume-one {
+    grid-template-columns: minmax(240px, 0.9fr) minmax(0, 1.1fr);
+    gap: 44px;
+  }
+  .book-detail__grid--volume-one .book-detail__visual { justify-content: center; }
+  .book-detail__grid--volume-one .book-3d { max-width: 400px; }
   .meth-quote-box { padding: 48px 56px; }
   .page-hero { padding: 100px 0 56px; }
   .hadith-banner { padding: 72px 0; }
@@ -630,6 +636,11 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
   .book-card__3d { width: 280px; height: 158px; }
   .book-card__visual { padding: 32px 32px 0; }
   .book-card__body { padding: 28px 32px 32px; }
+  .book-detail__grid--volume-one {
+    grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
+    gap: 72px;
+  }
+  .book-detail__grid--volume-one .book-3d { max-width: 440px; }
   .read-section { padding: 100px 0; }
   .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
   .section-header { margin-bottom: 64px; }
@@ -1064,10 +1075,11 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 .book-detail { background: var(--cream-dark); }
 .book-detail__grid {
   display: grid; grid-template-columns: 1fr;
-  gap: 24px; align-items: center;
+  gap: 30px; align-items: center;
 }
 
-.book-detail__visual { display: flex; justify-content: center; }
+.book-detail__visual { display: flex; justify-content: center; align-items: center; }
+.book-detail__content { width: 100%; max-width: 640px; justify-self: start; }
 .book-detail__title {
   font-family: var(--font-display); font-size: clamp(1.9rem,3vw,2.8rem);
   color: var(--ink); margin-bottom: 8px; font-weight: 400;
