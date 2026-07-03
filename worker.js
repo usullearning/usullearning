@@ -94,7 +94,7 @@ function corsResponse(body, status, origin, allowed) {
     'Access-Control-Allow-Headers': 'Content-Type',
     'X-Content-Type-Options': 'nosniff',
   };
-  // Only set the CORS header when the origin matches — never set it to the
+  // Only set the CORS header when the origin matches - never set it to the
   // string 'null', which browsers treat as a non-matching value and block.
   if (origin === allowed) {
     headers['Access-Control-Allow-Origin'] = allowed;

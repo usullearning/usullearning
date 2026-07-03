@@ -1,8 +1,8 @@
 # Content License
 
-**Usul Learning — Educational Content**
+**Usul Learning - Educational Content**
 
-All educational content published through Usul Learning — including books, PDFs, written volumes, structured curricula, and associated materials — is the intellectual property of **Usul Learning** and is owned by **Muhammed Faheem**.
+All educational content published through Usul Learning, including books, PDFs, written volumes, structured curricula, and associated materials, is the intellectual property of **Usul Learning** and is owned by **Muhammed Faheem**.
 
 This content is **not** covered under the MIT License that applies to the source code of this project.
 
@@ -39,7 +39,7 @@ The official Review Edition may include metadata, alteration protection, and a p
 
 When referencing or quoting content from Usul Learning, attribution must clearly state:
 
-> *From Usul Learning — usullearning.com — authored by Muhammed Faheem*
+> *From Usul Learning - usullearning.com - authored by Muhammed Faheem*
 
 ---
 

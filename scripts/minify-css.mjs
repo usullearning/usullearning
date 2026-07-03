@@ -34,7 +34,7 @@ const isWs = (c) => c === ' ' || c === '\t' || c === '\n' || c === '\r' || c ===
 while (i < n) {
   const c = css[i];
 
-  // Comment: /* ... */  (only outside strings — we're always outside strings here)
+  // Comment: /* ... */  (only outside strings - we're always outside strings here)
   if (c === '/' && css[i + 1] === '*') {
     i += 2;
     while (i < n && !(css[i] === '*' && css[i + 1] === '/')) i++;

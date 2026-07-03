@@ -1,6 +1,6 @@
 /*
   # ============================================================
-  # Usul Learning — Cloudflare Pages / Pages _headers file
+  # Usul Learning - Cloudflare Pages / Pages _headers file
   # Deploy this file in the ROOT of your site.
   # Cloudflare Pages reads it automatically.
   # If hosting elsewhere, configure these in your server/proxy.
@@ -31,17 +31,17 @@
   # Allowlist of every source the site legitimately loads from.
   # Anything not listed is blocked by the browser.
   #
-  # default-src 'self'          — block everything by default
-  # script-src  'self'          — only our own main.js
-  # style-src   'self' fonts.googleapis.com — styles.css + Google Fonts CSS
-  #             + sha256-RcEY…               — the <noscript><style> fade-up fallback
+  # default-src 'self'          - block everything by default
+  # script-src  'self'          - only our own main.js
+  # style-src   'self' fonts.googleapis.com - styles.css + Google Fonts CSS
+  #             + sha256-RcEY…               - the <noscript><style> fade-up fallback
   #               (identical on every page; re-hash if that block ever changes)
-  # font-src    fonts.gstatic.com           — the actual font files
-  # img-src     'self' data:               — local images + inline data: SVGs
-  # connect-src 'self' api.web3forms.com   — contact form direct to Web3Forms
-  # frame-ancestors 'none'      — belt-and-suspenders vs clickjacking
-  # base-uri    'self'          — prevent base tag injection
-  # form-action 'self'          — prevent form hijacking
+  # font-src    fonts.gstatic.com           - the actual font files
+  # img-src     'self' data:               - local images + inline data: SVGs
+  # connect-src 'self' api.web3forms.com   - contact form direct to Web3Forms
+  # frame-ancestors 'none'      - belt-and-suspenders vs clickjacking
+  # base-uri    'self'          - prevent base tag injection
+  # form-action 'self'          - prevent form hijacking
   Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'sha256-RcEYQ0WCOzkadJT526Mm/M5XwF0E0Z4WyYKl6nlcl1M='; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com
 
   # ── Cross-Origin policies ─────────────────────────────────

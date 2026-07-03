@@ -66,7 +66,7 @@ for asset in "${unused_assets[@]}"; do
   rm -f "$output_dir/$asset"
 done
 
-# Minify the deployed stylesheet only. Source styles.css stays readable — the
+# Minify the deployed stylesheet only. Source styles.css stays readable - the
 # minifier reads the source and writes the minified result into dist. If node is
 # unavailable or the minify step fails for any reason, fall back to the plain
 # copy already staged above so the build never breaks.

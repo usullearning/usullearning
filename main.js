@@ -1,5 +1,5 @@
 /* ============================================================
-   Usul Learning — main.js
+   Usul Learning - main.js
    Frontend for Worker endpoints
    ============================================================ */
 
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-  // Books page — print edition interest
+  // Books page - print edition interest
   wireNotifyForm('notifyPODForm', 'notifyEmailPOD', 'notifyPODBtn', 'notifyPODStatus');
 
 });
@@ -213,7 +213,7 @@ function handleContact(event) {
         showContactFailure('Your browser or an extension blocked the form. Please disable your ad blocker for this site, or email us at contact@usullearning.com');
       } else {
         console.error('Contact form:', err.message);
-        showContactFailure('Could not send — ' + err.message + '. Please email contact@usullearning.com');
+        showContactFailure('Could not send: ' + err.message + '. Please email contact@usullearning.com');
       }
     });
 }
