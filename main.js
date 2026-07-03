@@ -101,20 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 100);
 
   const cookieBanner = document.getElementById('cookieBanner');
-  const cookieAccept = document.getElementById('cookieAccept');
-  const cookieDecline = document.getElementById('cookieDecline');
+  const cookieDismiss = document.getElementById('cookieDismiss');
 
-  if (cookieBanner && !localStorage.getItem('ul_cookie_consent')) {
+  if (cookieBanner && !localStorage.getItem('ul_cookie_notice')) {
     cookieBanner.classList.remove('hidden');
   }
 
-  cookieAccept?.addEventListener('click', () => {
-    localStorage.setItem('ul_cookie_consent', 'accepted');
-    cookieBanner.classList.add('hidden');
-  });
-
-  cookieDecline?.addEventListener('click', () => {
-    localStorage.setItem('ul_cookie_consent', 'declined');
+  cookieDismiss?.addEventListener('click', () => {
+    localStorage.setItem('ul_cookie_notice', 'dismissed');
     cookieBanner.classList.add('hidden');
   });
 

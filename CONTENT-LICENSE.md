@@ -11,18 +11,27 @@ This content is **not** covered under the MIT License that applies to the source
 ## What You May Do
 
 - **View** content for personal, non-commercial use
-- **Share** links to content with proper attribution to Usul Learning
-- **Quote** brief excerpts for educational, academic, or review purposes, with clear attribution
+- **Share** the official free Review Edition PDF in its original, unaltered form, with attribution to Usul Learning
+- **Share** links to content, including the official download page, with proper attribution to Usul Learning
+- **Quote** brief excerpts for review, study, or reference purposes, with clear attribution
 
 ---
 
 ## What You May Not Do
 
-- **Modify** or create derivative works from the content
-- **Redistribute** the content commercially or for financial gain
-- **Republish** the content on another platform, website, or medium without written permission
-- **Claim authorship** or remove attribution from any material
+- **Modify** or create derivative works from the content, or upload or distribute modified copies
+- **Remove** metadata, attribution, notices, or authenticity information, or bypass alteration protection
+- **Sell** the content, or **redistribute** it commercially or for financial gain
+- **Republish** the content on another platform, website, or medium without written permission, other than sharing the official Review Edition PDF in unaltered form as permitted above
+- **Claim authorship** or present the material as someone else's work
+- **Use** the content in a misleading or disrespectful context, or in a way that implies endorsement by Usul Learning
 - **Use** content or branding to represent, endorse, or affiliate with any other organisation
+
+---
+
+## Authenticity
+
+The official Review Edition may include metadata, alteration protection, and a published SHA hash so readers can verify authenticity. These measures are intended to protect the integrity of the text, not to restrict permitted unaltered sharing.
 
 ---
 
