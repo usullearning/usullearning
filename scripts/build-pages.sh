@@ -66,6 +66,21 @@ for asset in "${unused_assets[@]}"; do
   rm -f "$output_dir/$asset"
 done
 
+# Minify the deployed stylesheet only. Source styles.css stays readable — the
+# minifier reads the source and writes the minified result into dist. If node is
+# unavailable or the minify step fails for any reason, fall back to the plain
+# copy already staged above so the build never breaks.
+if command -v node >/dev/null 2>&1; then
+  if node scripts/minify-css.mjs styles.css "$output_dir/styles.css.min"; then
+    mv -f "$output_dir/styles.css.min" "$output_dir/styles.css"
+  else
+    echo "build-pages: CSS minify failed; shipping un-minified styles.css" >&2
+    rm -f "$output_dir/styles.css.min"
+  fi
+else
+  echo "build-pages: node not found; shipping un-minified styles.css" >&2
+fi
+
 blocked_paths="$(
   find "$output_dir" \
     \( \

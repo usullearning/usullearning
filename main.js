@@ -11,12 +11,16 @@ const SUBSCRIBE_URL = '/api/subscribe';
 
 /* ── DEVICE CAPABILITY DETECTION ───────────────────────────── */
 
-if (!window.matchMedia('(hover: hover)').matches) {
-  document.body.classList.add('no-hover');
-}
-
+// Batch all layout reads (innerWidth) and media queries BEFORE writing body
+// classes, so we never read a geometric property after invalidating layout
+// (avoids a forced synchronous reflow at startup).
+const noHover = !window.matchMedia('(hover: hover)').matches;
 const isSmallScreen = window.innerWidth < 600;
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (noHover) {
+  document.body.classList.add('no-hover');
+}
 if (isSmallScreen || prefersReducedMotion) {
   document.body.classList.add('reduce-motion');
 }
