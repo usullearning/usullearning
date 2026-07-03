@@ -1,20 +1,10 @@
-/about /about.html 200
-/about/ /about.html 200
-/books /books.html 200
-/books/ /books.html 200
-/contact /contact.html 200
-/contact/ /contact.html 200
-/methodology /methodology.html 200
-/methodology/ /methodology.html 200
-/privacy /privacy.html 200
-/privacy/ /privacy.html 200
-/sources /sources.html 200
-/sources/ /sources.html 200
-/support /support.html 200
-/support/ /support.html 200
-/support-policy /support-policy.html 200
-/support-policy/ /support-policy.html 200
-/terms /terms.html 200
-/terms/ /terms.html 200
-/thank-you /thank-you.html 200
-/thank-you/ /thank-you.html 200
+# Intentionally no rewrite rules.
+#
+# Clean URLs (/books, /about, ...) are served automatically by Cloudflare
+# Pages from the matching *.html files, and Pages 308-canonicalizes /page.html
+# to /page on its own. Adding "/page /page.html 200" rewrites here fought that
+# canonicalization and produced an ERR_TOO_MANY_REDIRECTS loop
+# (/page -> /page.html -> 308 /page -> ...), so those rules were removed.
+#
+# The "www -> root" redirect is a Cloudflare dashboard Redirect Rule, not a
+# repo concern. Do not add a catch-all or asset rewrites here.
