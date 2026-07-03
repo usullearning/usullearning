@@ -113,6 +113,7 @@ p  { font-size: clamp(0.9rem, 3vw, 1.05rem); line-height: 1.85; color: var(--tex
 .nav__inner { display: flex; align-items: center; width: 100%; }
 .nav__logo { display: flex; align-items: center; gap: 0; flex-shrink: 0; }
 .nav__logo-img { height: 32px; width: auto; object-fit: contain; opacity: 0.88; }
+.nav__logo-divider { width: 1px; height: 24px; background: linear-gradient(180deg, transparent, rgba(200,146,42,0.45), transparent); margin: 0 10px; }
 .nav__logo-text { display: flex; flex-direction: column; gap: 3px; }
 .nav__logo-name { font-family: var(--font-brand); font-size: 1rem; font-weight: 700; color: var(--gold-pale); letter-spacing: 0.03em; line-height: 1; }
 .nav__logo-tagline { font-size: 0.55rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(200,146,42,0.7); line-height: 1; }
@@ -338,6 +339,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
 .footer__grid { display: grid; grid-template-columns: 1fr; gap: 28px; padding-bottom: 24px; border-bottom: 1px solid rgba(200,146,42,0.08); margin-bottom: 20px; }
 .footer__brand-logo { display: flex; align-items: center; gap: 0; margin-bottom: 14px; }
 .footer__brand-img { height: 30px; width: auto; object-fit: contain; opacity: 0.82; }
+.footer__brand-divider { width: 1px; height: 24px; background: linear-gradient(180deg, transparent, rgba(200,146,42,0.4), transparent); margin: 0 12px; }
 .footer__brand-text { display: flex; flex-direction: column; gap: 3px; }
 .footer__brand-name { font-family: var(--font-brand); font-size: 1rem; font-weight: 700; color: var(--gold-pale); letter-spacing: 0.02em; line-height: 1; }
 .footer__brand-desc { font-size: 0.82rem; color: rgba(247,242,233,0.72); line-height: 1.75; font-weight: 400; max-width: 100%; margin-bottom: 14px; }
@@ -498,6 +500,7 @@ h2.sources-group-heading { font-size: 0.65rem; font-weight: 600; letter-spacing:
   .section--sm { padding: 56px 0; }
   .nav__logo-img { height: 36px; }
   .nav__logo-name { font-size: 1.15rem; }
+  .nav__logo-divider { margin: 0 14px; }
   /* Hero */
   .hero__content { padding: 60px 0 72px; gap: 40px; }
   /* hero__actions left-align already set at 700px for tablets; keep centred only for non-2col hero (below 700px) */
